@@ -46,9 +46,10 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="font-sans text-[13px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-neutral-500 dark:text-neutral-400 mt-6 sm:mt-8 md:mt-12 max-w-[260px] sm:max-w-sm md:max-w-lg leading-relaxed font-medium z-10"
+                className="font-sans text-[13px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-neutral-500 dark:text-neutral-400 mt-6 sm:mt-8 md:mt-12 max-w-[260px] sm:max-w-sm md:max-w-xl leading-relaxed font-medium z-10"
             >
-                Open to freelance, full-time, and collaborations.
+                Open to freelance, full-time, and collaborations.<br className="hidden sm:block" />
+                Contact: <span className="text-black dark:text-white">shvetgharework@gmail.com</span> | <span className="text-black dark:text-white">+91 7249832504</span>
             </motion.p>
 
             {/* Email CTA */}
@@ -60,7 +61,7 @@ export default function ContactSection() {
                 className="mt-4"
             >
                 <a
-                    href="#contact"
+                    href="mailto:shvetgharework@gmail.com"
                     className="inline-block bg-accent text-black font-mono font-black text-xs tracking-[0.2em] px-12 py-5 uppercase transition-all hover:translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_#000000] dark:hover:shadow-[10px_10px_0_0_#ffffff]"
                 >
                     SEND AN EMAIL
