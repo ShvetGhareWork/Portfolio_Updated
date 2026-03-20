@@ -17,10 +17,10 @@ const antic = Antic({
 });
 
 export const metadata: Metadata = {
-  title: "SHVET GHARE — Portfolio",
+  title: "Shvet Ghare",
   description: "Designing human experiences in code.",
   openGraph: {
-    title: "SHVET GHARE — Portfolio",
+    title: "Shvet Ghare",
     description: "Designing human experiences in code.",
   },
 };
