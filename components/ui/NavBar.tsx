@@ -16,7 +16,7 @@ const menuItems = [
     { label: 'EXPERIENCE', href: '#experience' },
     { label: 'SKILLS', href: '#skills' },
     { label: 'EDUCATION', href: '#education' },
-    { label: 'WRITING', href: '#writing' },
+    { label: 'ACCOLADES', href: '#writing' },
     { label: 'CONTACT', href: '#contact' },
 ];
 

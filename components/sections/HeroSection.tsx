@@ -13,7 +13,7 @@ const menuItems = [
     { label: "EXPERIENCE", href: "#experience" },
     { label: "SKILLS", href: "#skills" },
     { label: "EDUCATION", href: "#education" },
-    { label: "WRITING", href: "#writing" },
+    { label: "ACCOLADES", href: "#writing" },
     { label: "CONTACT", href: "#contact" },
 ];
 
@@ -21,8 +21,35 @@ export default function HeroSection() {
     const { theme, toggleTheme } = useTheme();
     const isDark = theme === "dark";
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("hero");
     const menuRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -70% 0px",
+            threshold: 0,
+        };
+
+        const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersect, observerOptions);
+        const sectionIds = ["hero", "about", "projects", "experience", "skills", "education", "writing", "contact"];
+
+        sectionIds.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -74,19 +101,21 @@ export default function HeroSection() {
                                 ref={menuRef}
                                 className="absolute top-full left-0 w-44 sm:w-48 md:w-56 bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl shadow-sm mt-2 p-3 sm:p-4 z-[100]"
                             >
-                                {menuItems.map((item) => (
-
-                                    <a key={item.label}
-                                        href={item.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="block text-base sm:text-lg md:text-xl font-bold font-mono tracking-tight py-1.5 px-2 transition-colors duration-200"
-                                        style={{ color: item.highlight ? "#C3E41D" : undefined }}
-                                        onMouseEnter={(e) => (e.currentTarget.style.color = "#C3E41D")}
-                                        onMouseLeave={(e) => (e.currentTarget.style.color = item.highlight ? "#C3E41D" : "")}
-                                    >
-                                        {item.label}
-                                    </a>
-                                ))}
+                                {menuItems.map((item) => {
+                                    const isActive = activeSection === item.href.slice(1);
+                                    return (
+                                        <a key={item.label}
+                                            href={item.href}
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="block text-base sm:text-lg md:text-xl font-bold font-mono tracking-tight py-1.5 px-2 transition-colors duration-200"
+                                            style={{ color: isActive ? "#C3E41D" : undefined }}
+                                            onMouseEnter={(e) => (e.currentTarget.style.color = "#C3E41D")}
+                                            onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? "#C3E41D" : "")}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         )}
                     </div>
@@ -94,7 +123,7 @@ export default function HeroSection() {
                     {/* Logo (Center) */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span
-                            className="text-4xl sm:text-5xl md:text-7xl text-black dark:text-white font-logo"
+                            className="text-4xl sm:text-5xl md:text-7xl text-black dark:text-white font-logo font-bold"
                             style={{ fontFamily: "'Brush Script MT', cursive, serif" }}
                         >
                             SG
