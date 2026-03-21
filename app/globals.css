@@ -2,6 +2,9 @@
 
 @theme {
   --color-accent: #C3E41D;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, SFMono-Regular, monospace;
+  --font-logo: var(--font-logo), cursive;
 }
 
 /* Tailwind 4 Class-Based Dark Mode Variant */

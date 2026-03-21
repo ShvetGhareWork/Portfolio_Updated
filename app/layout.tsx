@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fira_Code, Antic } from "next/font/google";
+import { Fira_Code, Outfit, Dancing_Script, Yellowtail, Satisfy, Great_Vibes, Pinyon_Script, Rouge_Script, Italianno, Antic, Carattere } from "next/font/google";
 import "./globals.css";
 
 const firaCode = Fira_Code({
@@ -9,10 +9,18 @@ const firaCode = Fira_Code({
   display: "swap",
 });
 
-const antic = Antic({
+const outfit = Outfit({
   subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+
+const dancingScript = Carattere({
+  subsets: ["latin",],
   weight: "400",
-  variable: "--font-antic",
+  variable: "--font-logo",
   display: "swap",
 });
 
@@ -35,7 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${firaCode.variable} ${antic.variable}`}>
+      <body className={`${firaCode.variable} ${outfit.variable} ${dancingScript.variable}`}>
         <ThemeProvider>
           <SmoothScroll>
             {children}

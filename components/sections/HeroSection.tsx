@@ -94,8 +94,9 @@ export default function HeroSection() {
                     {/* Logo (Center) */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span
-                            className="text-4xl sm:text-5xl md:text-7xl text-black dark:text-white italic"
+                            className="text-4xl sm:text-5xl md:text-7xl text-black dark:text-white font-logo"
                             style={{ fontFamily: "'Brush Script MT', cursive, serif" }}
+
                         >
                             SG
                         </span>
@@ -130,7 +131,7 @@ export default function HeroSection() {
                                 animateBy="letters"
                                 direction="top"
                                 className="font-sans font-black leading-[0.8] tracking-tighter uppercase whitespace-nowrap text-accent opacity-90"
-                                style={{ fontSize: "clamp(70px, 18vw, 480px)" }}
+                                style={{ fontSize: "clamp(100px, 18vw, 480px)" }}
                             />
                         </div>
                         <div>
@@ -140,7 +141,7 @@ export default function HeroSection() {
                                 animateBy="letters"
                                 direction="top"
                                 className="font-sans font-black leading-[0.8] tracking-tighter uppercase whitespace-nowrap text-accent opacity-90"
-                                style={{ fontSize: "clamp(70px, 18vw, 480px)" }}
+                                style={{ fontSize: "clamp(100px, 18vw, 480px)" }}
                             />
                         </div>
                     </div>

@@ -94,9 +94,8 @@ export default function NavBar({ isDark, onToggleTheme }: NavBarProps) {
 
                 {/* Signature */}
                 <span
-                    className="text-3xl select-none"
+                    className="text-2xl select-none font-logo font-bold"
                     style={{
-                        fontFamily: "'Brush Script MT', cursive",
                         color: textColor,
                     }}
                 >
