@@ -95,8 +95,6 @@ export default function HeroSection() {
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span
                             className="text-4xl sm:text-5xl md:text-7xl text-black dark:text-white font-logo"
-                            style={{ fontFamily: "'Brush Script MT', cursive, serif" }}
-
                         >
                             SG
                         </span>
