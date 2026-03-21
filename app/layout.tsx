@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fira_Code, Outfit, Satisfy } from "next/font/google";
+import { Carattere, Fira_Code, Outfit, Satisfy } from "next/font/google";
 import "./globals.css";
 
 const firaCode = Fira_Code({
@@ -16,7 +16,7 @@ const outfit = Outfit({
   display: "swap",
 });
 
-const fontLogo = Satisfy({
+const fontLogo = Carattere({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-logo",
