@@ -138,69 +138,66 @@ export default function HeroSection() {
             </header>
 
             {/* Centered name */}
-            <div className="flex flex-col items-center justify-center min-h-screen pt-16 sm:pt-20 px-2 sm:px-4 text-center">
-                <div className="relative flex flex-col items-center justify-center w-full">
+            <div className="flex flex-col items-center justify-center min-h-screen pt-24 pb-16 px-4 text-center">
+                <div className="relative flex flex-col items-center justify-center w-full max-w-7xl mx-auto">
+                    
+                    {/* Section indicator matching other sections */}
+                    <div className="absolute top-0 left-0 sm:left-4 md:left-8 flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em] opacity-80 mb-12 sm:mb-16">
+                        <span>0 1</span>
+                    </div>
 
-                    {/*
-                        Font-size math:
-                        Phone  (~390px):  18vw × 3.9  = 70px/char → "SHVET" ≈ 298px — fills ~76% width ✓
-                        Tablet (~768px):  18vw × 7.68 = 138px/char → hits 480px cap at ~2667px, so tablet uses 138px ✓
-                        Desktop(1440px):  18vw × 14.4 = 259px/char → still under 480px cap ✓
-                        Wide   (2200px+): capped at 480px ✓
-                    */}
+                    {/* Name container with refined spacing */}
                     <div
-                        className="relative z-0 leading-none w-full flex flex-col items-center"
-                        style={{ fontSize: "clamp(70px, 18vw, 480px)" }}
+                        className="relative z-0 w-full flex flex-col items-center py-12"
+                        style={{ fontSize: "clamp(80px, 16vw, 420px)" }}
                     >
-                        <div>
+                        <div className="leading-[0.85] tracking-tighter">
                             <BlurText
                                 text="SHVET"
                                 delay={80}
                                 animateBy="letters"
                                 direction="top"
-                                className="font-sans font-black leading-[0.8] tracking-tighter uppercase whitespace-nowrap text-accent opacity-90"
-                                style={{ fontSize: "clamp(100px, 18vw, 480px)" }}
+                                className="font-sans font-black uppercase text-accent opacity-90"
                             />
                         </div>
-                        <div>
+                        <div className="leading-[0.85] tracking-tighter -mt-[0.1em]">
                             <BlurText
                                 text="GHARE"
                                 delay={100}
                                 animateBy="letters"
                                 direction="top"
-                                className="font-sans font-black leading-[0.8] tracking-tighter uppercase whitespace-nowrap text-accent opacity-90"
-                                style={{ fontSize: "clamp(100px, 18vw, 480px)" }}
+                                className="font-sans font-black uppercase text-accent opacity-90"
                             />
                         </div>
                     </div>
 
-                    {/* Profile photo — tracks name size */}
+                    {/* Profile photo — refined dimensions and overlap */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
                         <div
-                            className="overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] ring-4 sm:ring-8 ring-white/5 dark:ring-black/5 bg-neutral-200 dark:bg-neutral-800 pointer-events-auto cursor-pointer"
+                            className="overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] ring-4 sm:ring-8 ring-white/5 dark:ring-black/10 bg-neutral-200 dark:bg-neutral-800 pointer-events-auto cursor-pointer"
                             style={{
-                                width: "clamp(80px, 13vw, 240px)",
-                                height: "clamp(128px, 21vw, 384px)",
-                                borderRadius: "clamp(32px, 5vw, 96px)",
+                                width: "clamp(100px, 15vw, 220px)",
+                                height: "clamp(150px, 22vw, 330px)",
+                                borderRadius: "clamp(40px, 6vw, 80px)",
                             }}
                         >
                             <img
                                 src="/images/hero-profile.jpg"
                                 alt="SHVET GHARE"
-                                className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 hover:brightness-100 transition-all duration-700"
+                                className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 hover:brightness-100 transition-all duration-700 transform hover:scale-105"
                             />
                         </div>
                     </div>
                 </div>
 
                 {/* Tagline */}
-                <div className="mt-10 sm:mt-16 md:mt-24 max-w-[260px] sm:max-w-sm md:max-w-lg px-4">
+                <div className="mt-8 sm:mt-12 md:mt-16 max-w-[260px] sm:max-w-md md:max-w-xl px-4">
                     <BlurText
                         text="Designing human experiences in code."
                         delay={100}
                         animateBy="words"
                         direction="top"
-                        className="font-sans text-[13px] sm:text-[16px] md:text-[20px] lg:text-[22px] text-neutral-600 dark:text-neutral-400 tracking-tight font-medium"
+                        className="font-sans text-[14px] sm:text-[18px] md:text-[22px] lg:text-[24px] text-neutral-600 dark:text-neutral-400 tracking-tight font-medium"
                     />
                 </div>
             </div>
