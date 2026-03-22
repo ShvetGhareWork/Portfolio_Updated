@@ -37,7 +37,7 @@ export const experiences: Experience[] = [
     role: "Hackathon Winner", 
     company: "CODEAUTOMATA VER. 2.0, CSMIT Panvel", 
     bullets: [
-      "Secured 1st place in the intra-college hackathon competing against 30+ teams.",
+      "Secured 1st place in the intra-college hackathon competing against 90+ teams.",
       "Developed a real-time solution addressing complex automated workflows using modern tech stacks.",
       "Recognized for innovative system design and rapid implementation under high-pressure constraints."
     ] 
