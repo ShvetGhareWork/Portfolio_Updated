@@ -1,4 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 import { Carattere, Fira_Code, Outfit, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -40,11 +49,21 @@ const fontLogo = Carattere({
 export const metadata: Metadata = {
   title: "Shvet Ghare",
   description: "Designing human experiences in code.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Shvet Ghare",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   openGraph: {
     title: "Shvet Ghare",
     description: "Designing human experiences in code.",
   },
 };
+
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
