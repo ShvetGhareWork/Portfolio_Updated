@@ -8,21 +8,16 @@
 }
 
 /* 
-   MOBILE FONT OPTIMIZATION (Android & Small Screens)
-   --------------------------------------------------
-   We override the 'font-sans' variable only for screens smaller than 768px.
-   The 'laptop' view remains exactly as it is (using Outfit).
+   FONTS: 100% Identical Across All Devices
+   -----------------------------------------
+   Your primary 'font-sans' is set to Outfit (modern geometric) everywhere. 
+   Option 1 & 2 are still loaded in layout.tsx as alternatives if needed.
 */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   :root {
-    /* OPTION 1 (BEST): 'Inter' - Exceptionally crisp and professional on mobile. */
     --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
-    /* OPTION 2 (ALTERNATIVE): 'Plus Jakarta Sans' - Modern, tech-focused with great personality. 
-       To use this, uncomment the line below and comment out the Inter line above. */
-    /* --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif; */
   }
-}
+} */
 
 /* Tailwind 4 Class-Based Dark Mode Variant */
 @variant dark (&:where(.dark, .dark *));
