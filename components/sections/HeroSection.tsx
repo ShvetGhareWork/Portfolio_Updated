@@ -120,13 +120,20 @@ export default function HeroSection() {
                         )}
                     </div>
 
-                    {/* Logo (Center) with Glassmorphism */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-2xl border border-black/5 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.02)] transition-all duration-500 hover:scale-110 hover:shadow-xl group">
+                    {/* Logo (Center) with Glassy Halo (No Box) */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group">
+                        {/* The Glassy Halo effect */}
+                        <div className="absolute inset-0 -inset-12 backdrop-blur-2xl [mask-image:radial-gradient(circle,white_20%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                        
+                        {/* Always visible subtle blur */}
+                        <div className="absolute inset-0 -inset-8 backdrop-blur-sm [mask-image:radial-gradient(circle,white_10%,transparent_60%)] pointer-events-none" />
+                        
                         <span
-                            className="text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-logo font-bold select-none cursor-default"
+                            className="relative text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-logo font-bold select-none cursor-default transition-all duration-500 group-hover:scale-110"
                             style={{ 
                                 fontFamily: "'Brush Script MT', cursive, serif",
-                                textShadow: "0 2px 10px rgba(0,0,0,0.05)"
+                                textShadow: "0 0 20px rgba(195, 228, 29, 0.4), 0 0 40px rgba(195, 228, 29, 0.1)",
+                                filter: "drop-shadow(0 0 10px rgba(255,255,255,0.2))"
                             }}
                         >
                             SG
