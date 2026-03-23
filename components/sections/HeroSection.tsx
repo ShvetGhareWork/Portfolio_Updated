@@ -120,11 +120,14 @@ export default function HeroSection() {
                         )}
                     </div>
 
-                    {/* Logo (Center) */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    {/* Logo (Center) with Glassmorphism */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-2xl border border-black/5 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.02)] transition-all duration-500 hover:scale-110 hover:shadow-xl group">
                         <span
-                            className="text-4xl sm:text-5xl md:text-7xl text-black dark:text-white font-logo font-bold"
-                            style={{ fontFamily: "'Brush Script MT', cursive, serif" }}
+                            className="text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-logo font-bold select-none cursor-default"
+                            style={{ 
+                                fontFamily: "'Brush Script MT', cursive, serif",
+                                textShadow: "0 2px 10px rgba(0,0,0,0.05)"
+                            }}
                         >
                             SG
                         </span>
