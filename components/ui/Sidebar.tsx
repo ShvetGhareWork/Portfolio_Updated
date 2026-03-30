@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
 
 const sections = [
     { id: "hero", label: "01 HOME" },
@@ -45,16 +46,16 @@ export default function Sidebar() {
     const activeLabel = sections.find(s => s.id === activeSectionId)?.label || "HOME";
 
     return (
-        <aside className="fixed left-0 top-0 bottom-0 w-16 border-r border-neutral-100 dark:border-neutral-900 bg-white dark:bg-black transition-colors duration-700 hidden md:flex flex-col items-center py-12 z-[100]">
+        <aside className="fixed left-0 top-0 bottom-0 w-16 border-r border-neutral-100 dark:border-neutral-900 bg-white dark:bg-black transition-colors duration-700 hidden md:flex flex-col items-center py-10 z-[100]">
             {/* Dynamic Vertical Text */}
-            <div className="flex-none -rotate-90 origin-center whitespace-nowrap mb-20 translate-y-24">
+            <div className="flex-none -rotate-90 origin-center whitespace-nowrap h-24 mb-12 flex items-center justify-center">
                 <AnimatePresence mode="wait">
                     <motion.span
                         key={activeLabel}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="font-mono text-[10px] font-black tracking-[0.5em] text-accent uppercase inline-block"
                     >
                         {activeLabel}
@@ -63,13 +64,12 @@ export default function Sidebar() {
             </div>
 
             {/* Navigation Dots System */}
-            <div className="flex-1 flex flex-col items-center justify-center gap-5">
+            <div className="flex-1 flex flex-col items-center justify-center gap-3 sm:gap-5 my-8">
                 {sections.map((section) => (
                     <a
                         key={section.id}
                         href={`#${section.id}`}
                         className="group relative flex items-center justify-center p-2"
-                        title={section.label}
                     >
                         <motion.div
                             animate={{
@@ -79,17 +79,37 @@ export default function Sidebar() {
                             }}
                             className={`w-1.5 h-1.5 rounded-full border border-neutral-300 dark:border-neutral-800 transition-colors duration-300 group-hover:border-accent`}
                         />
-                        {/* Tooltip Label (Optional, matches Monolith aesthetic) */}
-                        <span className="absolute left-10 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-black px-2 py-1 rounded-sm">
+                        <span className="absolute left-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none">
                             {section.label}
                         </span>
                     </a>
                 ))}
             </div>
 
-            {/* Year Indicator */}
-            <div className="mt-auto">
-                <span className="font-mono text-[10px] text-neutral-300 dark:text-neutral-800 rotate-90 inline-block font-black tracking-widest">2026</span>
+            {/* PERSISTENT SOCIALS */}
+            <div className="mt-auto flex flex-col items-center gap-5 sm:gap-6 pb-2">
+                <a
+                    href="https://github.com/ShvetGhareWork"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center justify-center p-2 text-neutral-300 dark:text-neutral-700 hover:text-black dark:hover:text-accent transition-colors duration-300"
+                >
+                    <Github size={18} strokeWidth={1.5} />
+                    <span className="absolute left-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none">
+                        GITHUB
+                    </span>
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/shvetghare1234"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center justify-center p-2 text-neutral-300 dark:text-neutral-700 hover:text-black dark:hover:text-accent transition-colors duration-300"
+                >
+                    <Linkedin size={18} strokeWidth={1.5} />
+                    <span className="absolute left-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none">
+                        LINKEDIN
+                    </span>
+                </a>
             </div>
         </aside>
     );

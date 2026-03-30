@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Github, Linkedin } from "lucide-react";
 import { BlurText } from "@/components/ui/BlurText";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useTheme } from "@/components/ThemeProvider";
@@ -116,6 +116,24 @@ export default function HeroSection() {
                                         </a>
                                     );
                                 })}
+                                <div className="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex gap-4 px-2">
+                                    <a
+                                        href="https://github.com/ShvetGhareWork"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                                    >
+                                        <Github size={18} strokeWidth={1.5} />
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/in/shvetghare1234"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                                    >
+                                        <Linkedin size={18} strokeWidth={1.5} />
+                                    </a>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -140,8 +158,32 @@ export default function HeroSection() {
                         </span>
                     </div>
 
-                    {/* Theme Toggle (Right) */}
-                    <div className="flex items-center">
+                    {/* Socials & Theme Toggle (Right) */}
+                    <div className="flex items-center gap-3 sm:gap-6">
+                        <div className="hidden xs:flex items-center gap-4 sm:gap-6 mr-2 sm:mr-4 border-r border-neutral-100 dark:border-neutral-800 pr-4 sm:pr-6">
+                            <a
+                                href="https://github.com/ShvetGhareWork"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group relative flex flex-col items-center justify-center p-2 text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                            >
+                                <Github size={20} strokeWidth={1.5} className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <span className="absolute top-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none translate-y-1 group-hover:translate-y-0">
+                                    GITHUB
+                                </span>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/shvetghare1234"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group relative flex flex-col items-center justify-center p-2 text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                            >
+                                <Linkedin size={20} strokeWidth={1.5} className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <span className="absolute top-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none translate-y-1 group-hover:translate-y-0">
+                                    LINKEDIN
+                                </span>
+                            </a>
+                        </div>
                         <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
                     </div>
                 </nav>
@@ -151,10 +193,6 @@ export default function HeroSection() {
             <div className="flex flex-col items-center justify-center min-h-screen pt-24 pb-16 px-4 text-center">
                 <div className="relative flex flex-col items-center justify-center w-full max-w-7xl mx-auto">
                     
-                    {/* Section indicator matching other sections */}
-                    <div className="absolute top-0 left-0 sm:left-4 md:left-8 flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em] opacity-80 mb-12 sm:mb-16">
-                        <span>0 1</span>
-                    </div>
 
                     {/* Name container with refined spacing */}
                     <div

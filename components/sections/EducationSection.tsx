@@ -45,13 +45,9 @@ export default function EducationSection() {
             {/* Header */}
             <div className="mb-16 md:mb-24 max-w-7xl mx-auto w-full">
                 <div className="flex flex-col gap-4 md:gap-6">
-                    <div className="flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em]">
-                        <span>0 6</span>
-                    </div>
                     <h2 className="font-sans font-black text-[clamp(48px,14vw,132px)] tracking-tighter uppercase leading-[0.75] text-black dark:text-white">
                         EDUCATION
                     </h2>
-                    <div className="w-full h-[3px] bg-accent border-none mt-4 max-w-[240px] sm:max-w-xs md:max-w-sm lg:max-w-lg" />
                 </div>
             </div>
 

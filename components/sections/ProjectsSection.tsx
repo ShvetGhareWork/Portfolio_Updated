@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
 
-const categories = ["ALL PROJECTS", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & E-COMMERCE"];
+const categories = ["ALL PROJECTS", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & ECOMMERCE", "FINTECH & AI"];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
     return (
@@ -21,6 +21,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 scale: { duration: 0.5, ease: "easeInOut" },
             }}
             href={project.href ?? "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex flex-col bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-100 dark:border-neutral-800 p-5 sm:p-6 md:p-8 transition-all duration-700 hover:border-accent hover:bg-white dark:hover:bg-neutral-900"
         >
             <div className="flex justify-between items-start mb-4 sm:mb-6">
@@ -37,6 +39,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 {project.description}
             </p>
 
+            <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+                {project.technologies.map((tech) => (
+                    <span
+                        key={tech}
+                        className="font-mono text-[9px] font-bold text-neutral-400 dark:text-neutral-500 border border-neutral-100 dark:border-neutral-800 px-2 py-1 uppercase tracking-wider group-hover:border-accent/30 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors duration-300"
+                    >
+                        {tech}
+                    </span>
+                ))}
+            </div>
+
             <div className="mt-auto pt-4 sm:pt-6 border-t border-neutral-100 dark:border-neutral-800 flex justify-between items-center group-hover:border-accent/30 transition-colors duration-300">
                 <span className="font-mono text-[11px] font-bold text-neutral-400 dark:text-neutral-600 tracking-widest">
                     {project.year}
@@ -52,6 +65,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function ProjectsSection() {
     const [activeCategory, setActiveCategory] = useState("ALL PROJECTS");
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
 
     const filteredProjects = activeCategory === "ALL PROJECTS"
         ? projects
@@ -65,13 +85,9 @@ export default function ProjectsSection() {
             {/* Header */}
             <div className="mb-12 sm:mb-16 md:mb-20 max-w-7xl mx-auto w-full">
                 <div className="flex flex-col gap-4 sm:gap-6">
-                    <div className="flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em]">
-                        <span>0 3</span>
-                    </div>
                     <h2 className="font-sans font-black text-[52px] sm:text-[72px] md:text-[96px] lg:text-[112px] xl:text-[128px] tracking-tighter uppercase leading-[0.85] text-black dark:text-white">
                         PROJECTS
                     </h2>
-                    <div className="w-full h-[3px] bg-accent border-none mt-4 max-w-[240px] sm:max-w-xs md:max-w-sm lg:max-w-lg" />
                 </div>
 
                 {/* Filter Tabs — horizontally scrollable on mobile */}

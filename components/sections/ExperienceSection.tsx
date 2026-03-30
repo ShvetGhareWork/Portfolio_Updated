@@ -12,13 +12,9 @@ export default function ExperienceSection() {
             {/* Header */}
             <div className="mb-16 md:mb-24 max-w-7xl mx-auto w-full">
                 <div className="flex flex-col gap-4 md:gap-6">
-                    <div className="flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em]">
-                        <span>0 4</span>
-                    </div>
                     <h2 className="font-sans font-black text-[clamp(52px,12vw,140px)] tracking-tighter uppercase leading-[0.75] text-black dark:text-white">
                         EXPERIENCE
                     </h2>
-                    <div className="w-full h-[3px] bg-accent border-none mt-4 max-w-[240px] sm:max-w-xs md:max-w-sm lg:max-w-lg" />
                 </div>
             </div>
 
@@ -72,7 +68,7 @@ export default function ExperienceSection() {
                                                 className="flex gap-3 md:gap-4 font-body text-[14px] md:text-[15px] lg:text-[16px] text-neutral-500 dark:text-neutral-400 leading-relaxed group/item transition-colors"
                                             >
                                                 <span className="text-accent font-mono font-black mt-1 flex-shrink-0 transition-transform group-hover/item:translate-x-1">
-                                                    —
+                                                    
                                                 </span>
                                                 <span className="group-hover/item:text-black dark:group-hover/item:text-white transition-colors duration-300 break-words min-w-0">
                                                     {bullet}

@@ -45,18 +45,9 @@ export default function SkillsSection() {
             {/* Header */}
             <div className="mb-16 md:mb-24 max-w-7xl mx-auto w-full">
                 <div className="flex flex-col gap-4 md:gap-6">
-                    <div className="flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em]">
-                        <span>0 5</span>
-                    </div>
-                    {/* 
-                        Use viewport-relative sizing that matches the screenshot:
-                        ~400px wide heading at ~1500px viewport = ~27vw
-                        On mobile we allow it to be large (min 64px) so it fills width
-                    */}
                     <h2 className="font-sans font-black text-[clamp(64px,18vw,160px)] tracking-tighter uppercase leading-[0.75] text-black dark:text-white">
                         SKILLS
                     </h2>
-                    <div className="w-full h-[3px] bg-accent border-none mt-4 max-w-[240px] sm:max-w-xs md:max-w-sm" />
                 </div>
             </div>
 

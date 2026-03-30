@@ -5,13 +5,23 @@ export const projects: Project[] = [
     category: "LMS & EDUCATION", 
     title: "EduAble", 
     description: "Specially-abled learning platform with an automated FFmpeg captioning pipeline (n8n) and secure JWT-based video streaming.", 
+    technologies: ["Next.js", "n8n", "FFmpeg", "JWT", "MongoDB"],
     year: "2026", 
     href: "https://edu-able.vercel.app/" 
   },
+  {
+  category: "FINTECH & AI",
+  title: "NiveshIQ",
+  description: "AI-powered personal finance mentor for Indian retail investors — portfolio X-Ray with true XIRR, fund overlap heatmap, tax wizard, and Money Health Score.",
+  technologies: ["React", "Tailwind CSS", "Chart.js", "Gemini AI", "ExcelJS"],
+  year: "2026",
+  href: "https://niveshiq-tau.vercel.app/"
+},
   { 
     category: "AI & EDTECH", 
     title: "CareerPath-AI", 
     description: "Personalized AI profiling system mapping traits and skills to real-time industrial demand for demand-driven career paths.", 
+    technologies: ["Next.js", "OpenAI", "PostgreSQL", "Prisma"],
     year: "2025", 
     href: "https://career-path-ai-frontend.vercel.app/" 
   },
@@ -19,16 +29,19 @@ export const projects: Project[] = [
     category: "AI & WEB3", 
     title: "OpenGuild", 
     description: "AI project-matching engine with a token-based incentive economy and real-time Socket.IO features for builder communities.", 
+    technologies: ["React", "Socket.IO", "Ethereum", "Solidity", "Node.js"],
     year: "2025", 
     href: "https://openguild.vercel.app/" 
   },
   { 
-    category: "AI & E-COMMERCE", 
+    category: "AI & ECOMMERCE", 
     title: "LuxeVault", 
-    description: "AI-enhanced MERN platform with 8 Gemini-powered modules and secure Razorpay integration for intent-driven shopping.", 
+    description: "AI-enhanced E-commerce platform featuring a Zepto-sourced dummy product database with 8 Gemini-powered modules and secure Razorpay integration.", 
+    technologies: ["MongoDB", "Express", "React", "Node.js", "Gemini AI", "Razorpay"],
     year: "2025", 
     href: "https://ai-enhanced-e-commerce-platform.vercel.app/" 
   },
+  
 ];
 
 export const experiences: Experience[] = [
@@ -114,7 +127,7 @@ export const articles: Article[] = [
 ];
 
 export const stats = [
-  { num: "04", label: "TOTAL PROJECTS" },
+  { num: "05+", label: "TOTAL PROJECTS" },
   { num: "9.39", label: "CUMULATIVE SGPA" },
   { num: "05+", label: "CERTIFICATIONS" },
 ];

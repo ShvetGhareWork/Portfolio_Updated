@@ -29,18 +29,12 @@ export default function AboutSection() {
 
                     {/* Left Column: Title & Description */}
                     <div className="lg:col-span-6 space-y-8 sm:space-y-12">
-                        <div className="space-y-4 sm:space-y-6">
-                            <div className="flex items-center gap-4 text-neutral-400 font-mono text-[11px] font-bold tracking-[0.4em]">
-                                <span>0 2</span>
-                            </div>
-                            <h2 className="font-sans font-black text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] tracking-tight uppercase text-accent mb-2">
+                            <h2 className="font-sans font-black text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-accent mb-4">
                                 SHVET GHARE
                             </h2>
-                            <h2 className="font-sans font-black text-[64px] sm:text-[80px] md:text-[96px] lg:text-[110px] xl:text-[120px] tracking-tighter uppercase leading-[0.8] text-black dark:text-white">
+                            <h2 className="font-sans font-black text-7xl sm:text-8xl md:text-9xl lg:text-[120px] tracking-tighter uppercase leading-[0.8] text-black dark:text-white">
                                 ABOUT
                             </h2>
-                            <div className="w-full h-[3px] bg-accent border-none mt-2 max-w-[240px] sm:max-w-xs md:max-w-sm lg:max-w-lg" />
-                        </div>
 
                         <div className="space-y-8 sm:space-y-10 max-w-lg">
                             <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] lg:text-[19px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
@@ -116,7 +110,7 @@ export default function AboutSection() {
                                 download
                                 className="inline-block bg-accent text-black font-mono font-black text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] px-8 sm:px-12 py-4 sm:py-5 uppercase transition-all hover:translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_#000000] sm:hover:shadow-[10px_10px_0_0_#000000] dark:hover:shadow-[8px_8px_0_0_#ffffff] sm:dark:hover:shadow-[10px_10px_0_0_#ffffff]"
                             >
-                                DOWNLOAD_CV
+                                DOWNLOAD_RESUME
                             </a>
                         </motion.div>
                     </div>
