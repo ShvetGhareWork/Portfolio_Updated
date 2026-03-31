@@ -26,6 +26,17 @@ export default function AboutSection() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto w-full">
+                {/* Section Label */}
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-400 mb-8"
+                >
+                    01 / ABOUT
+                </motion.p>
+
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 lg:gap-20 items-start">
 
                     {/* Left Column: Title & Description */}

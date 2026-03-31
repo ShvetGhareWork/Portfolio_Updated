@@ -23,40 +23,65 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             href={project.href ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-100 dark:border-neutral-800 p-5 sm:p-6 md:p-8 transition-all duration-700 hover:border-accent hover:bg-white dark:hover:bg-neutral-900"
+            className="group flex flex-col bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-100 dark:border-neutral-800 transition-all duration-700 hover:border-accent hover:bg-white dark:hover:bg-neutral-950 overflow-hidden"
         >
-            <div className="flex justify-between items-start mb-4 sm:mb-6">
-                <span className="bg-accent text-black font-mono font-black text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 flex items-center justify-center">
-                    {project.category}
-                </span>
-            </div>
-
-            <h3 className="font-sans font-black text-xl sm:text-2xl md:text-3xl leading-none tracking-tighter uppercase mb-3 sm:mb-4 text-black dark:text-white group-hover:text-accent transition-colors duration-300">
-                {project.title}
-            </h3>
-
-            <p className="font-sans text-[13px] sm:text-[14px] md:text-[15px] text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium flex-1 mb-6 sm:mb-8">
-                {project.description}
-            </p>
-
-            <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
-                {project.technologies.map((tech) => (
-                    <span
-                        key={tech}
-                        className="font-mono text-[9px] font-bold text-neutral-400 dark:text-neutral-500 border border-neutral-100 dark:border-neutral-800 px-2 py-1 uppercase tracking-wider group-hover:border-accent/30 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors duration-300"
-                    >
-                        {tech}
+            {/* Visual Thumbnail */}
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                {project.image ? (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
+                ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-800 to-black">
+                        <span className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase">No Preview</span>
+                    </div>
+                )}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                
+                {/* Category Tag Overlay */}
+                <div className="absolute top-4 left-4">
+                    <span className="bg-accent text-black font-mono font-black text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 backdrop-blur-md">
+                        {project.category}
                     </span>
-                ))}
+                </div>
             </div>
 
-            <div className="mt-auto pt-4 sm:pt-6 border-t border-neutral-100 dark:border-neutral-800 flex justify-between items-center group-hover:border-accent/30 transition-colors duration-300">
-                <span className="font-mono text-[11px] font-bold text-neutral-400 dark:text-neutral-600 tracking-widest">
-                    {project.year}
-                </span>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-neutral-100 dark:border-neutral-800 group-hover:bg-accent group-hover:border-accent group-hover:text-black transition-all duration-300">
-                    <ArrowUpRight size={16} strokeWidth={2.5} className="sm:hidden" />
-                    <ArrowUpRight size={18} strokeWidth={2.5} className="hidden sm:block" />
+            <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="flex justify-between items-start mb-4">
+                    <h3 className="font-sans font-black text-2xl sm:text-3xl leading-none tracking-tighter uppercase text-black dark:text-white group-hover:text-accent transition-colors duration-300">
+                        {project.title}
+                    </h3>
+                </div>
+
+                <p className="font-sans text-[13px] sm:text-[14px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium mb-8">
+                    {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                        <span
+                            key={tech}
+                            className="font-mono text-[9px] font-bold text-neutral-400 dark:text-neutral-500 border border-neutral-100 dark:border-neutral-800 px-2 py-1 uppercase tracking-wider group-hover:border-accent/30 transition-colors duration-300"
+                        >
+                            {tech}
+                        </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                        <span className="font-mono text-[9px] font-bold text-neutral-500 border border-transparent px-2 py-1 uppercase">
+                            +{project.technologies.length - 4}
+                        </span>
+                    )}
+                </div>
+
+                <div className="pt-6 border-t border-neutral-100 dark:border-neutral-900 flex justify-between items-center group-hover:border-accent/30 transition-colors duration-300">
+                    <span className="font-mono text-[11px] font-bold text-neutral-400 dark:text-neutral-600 tracking-widest">
+                        {project.year}
+                    </span>
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-100 dark:border-neutral-800 group-hover:bg-accent group-hover:border-accent group-hover:text-black transition-all duration-300">
+                        <ArrowUpRight size={18} strokeWidth={2.5} />
+                    </div>
                 </div>
             </div>
         </motion.a>
@@ -84,6 +109,16 @@ export default function ProjectsSection() {
         >
             {/* Header */}
             <div className="mb-12 sm:mb-16 md:mb-20 max-w-7xl mx-auto w-full">
+                {/* Section Label */}
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-400 mb-6"
+                >
+                    02 / PROJECTS
+                </motion.p>
                 <div className="flex flex-col gap-4 sm:gap-6">
                     <h2 className="font-sans font-black text-[52px] sm:text-[72px] md:text-[96px] lg:text-[112px] xl:text-[128px] tracking-tighter uppercase leading-[0.85] text-black dark:text-white">
                         PROJECTS

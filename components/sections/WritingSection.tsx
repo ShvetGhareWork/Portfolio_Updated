@@ -50,6 +50,16 @@ export default function WritingSection() {
         >
             {/* Header */}
             <div className="mb-16 md:mb-24 max-w-7xl mx-auto w-full">
+                {/* Section Label */}
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-400 mb-6"
+                >
+                    06 / ACCOLADES
+                </motion.p>
                 <div className="flex flex-col gap-4 md:gap-6">
                     <h2 className="font-sans font-black text-[clamp(48px,12vw,120px)] tracking-tighter uppercase leading-[0.75] text-black dark:text-white">
                         ACCOLADES
@@ -64,7 +74,7 @@ export default function WritingSection() {
                 ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button
             <div className="mt-12 md:mt-20 flex justify-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -78,7 +88,7 @@ export default function WritingSection() {
                         GET IN TOUCH
                     </a>
                 </motion.div>
-            </div>
+            </div> */}
 
             {/* Background Watermark 07 */}
             <div className="absolute bottom-0 right-[-5%] leading-none select-none pointer-events-none z-0 overflow-hidden opacity-50 dark:opacity-100">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Github, Linkedin } from "lucide-react";
 import { BlurText } from "@/components/ui/BlurText";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -77,188 +78,194 @@ export default function HeroSection() {
             id="hero"
             className="relative min-h-screen bg-white transition-colors duration-700 dark:bg-black text-black dark:text-white overflow-hidden"
         >
-            {/* Navbar */}
-            <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-5 sm:py-8">
-                <nav className="flex items-center justify-between max-w-screen-2xl mx-auto relative">
+            {/* Header / Navbar (Simplified for Minimalist Audit) */}
+            <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-6 sm:py-10 transition-all duration-500 bg-gradient-to-b from-black/10 to-transparent pointer-events-none">
+                <nav className="flex items-center justify-between max-w-screen-2xl mx-auto relative px-4 pointer-events-auto">
 
-                    {/* Menu button (Left) */}
-                    <div className="relative md:hidden">
-                        <button
-                            ref={buttonRef}
-                            type="button"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
-                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                        >
-                            {isMenuOpen
-                                ? <X className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
-                                : <Menu className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
-                            }
-                        </button>
-
-                        {isMenuOpen && (
-                            <div
-                                ref={menuRef}
-                                className="absolute top-full left-0 w-44 sm:w-48 md:w-56 bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl shadow-sm mt-2 p-3 sm:p-4 z-[100]"
+                    {/* Left: Global Menu Toggle (Transparent/Empty on Desktop) */}
+                    <div className="flex items-center md:hidden">
+                        <div className="relative">
+                            <button
+                                ref={buttonRef}
+                                type="button"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                className="group p-2 text-neutral-400 hover:text-accent transition-all duration-300 flex items-center gap-3"
+                                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                             >
-                                {menuItems.map((item) => {
-                                    const isActive = activeSection === item.href.slice(1);
-                                    return (
-                                        <a key={item.label}
-                                            href={item.href}
-                                            onClick={() => setIsMenuOpen(false)}
-                                            className="block text-base sm:text-lg md:text-xl font-bold font-mono tracking-tight py-1.5 px-2 transition-colors duration-200"
-                                            style={{ color: isActive ? "#C3E41D" : undefined }}
-                                            onMouseEnter={(e) => (e.currentTarget.style.color = "#C3E41D")}
-                                            onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? "#C3E41D" : "")}
-                                        >
-                                            {item.label}
-                                        </a>
-                                    );
-                                })}
-                                <div className="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 flex gap-4 px-2">
-                                    <a
-                                        href="https://github.com/ShvetGhareWork"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
-                                    >
-                                        <Github size={18} strokeWidth={1.5} />
-                                    </a>
-                                    <a
-                                        href="https://www.linkedin.com/in/shvetghare1234"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
-                                    >
-                                        <Linkedin size={18} strokeWidth={1.5} />
-                                    </a>
+                                <div className="relative w-6 h-6 sm:w-8 sm:h-8 flex flex-col justify-center items-center gap-1.5 sm:gap-2">
+                                    <motion.span
+                                        animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 4.5 : 0 }}
+                                        className="w-full h-[1.5px] bg-current transition-all"
+                                    />
+                                    <motion.span
+                                        animate={{ opacity: isMenuOpen ? 0 : 1 }}
+                                        className="w-full h-[1.5px] bg-current"
+                                    />
+                                    <motion.span
+                                        animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -4.5 : 0 }}
+                                        className="w-full h-[1.5px] bg-current transition-all"
+                                    />
                                 </div>
-                            </div>
-                        )}
+                                <span className="font-mono text-[9px] font-black tracking-[0.4em] hidden sm:inline-block">MENU</span>
+                            </button>
+
+                            <AnimatePresence>
+                                {isMenuOpen && (
+                                    <motion.div
+                                        ref={menuRef}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        className="absolute top-full left-0 w-56 bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-2xl shadow-2xl mt-4 p-5 z-[100] backdrop-blur-xl"
+                                    >
+                                        {menuItems.map((item) => (
+                                            <a key={item.label}
+                                                href={item.href}
+                                                onClick={() => setIsMenuOpen(false)}
+                                                className="group flex justify-between items-center text-sm font-black font-mono tracking-widest py-3 px-3 transition-all duration-200 hover:text-accent"
+                                                style={{ color: activeSection === item.href.slice(1) ? "#C3E41D" : undefined }}
+                                            >
+                                                {item.label}
+                                                <div className={`w-1.5 h-1.5 bg-accent rounded-full transition-opacity ${activeSection === item.href.slice(1) ? "opacity-100" : "opacity-0 group-hover:opacity-40"}`} />
+                                            </a>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </div>
 
-                    {/* Logo (Center) with Glassy Halo (No Box) */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group">
-                        {/* The Glassy Halo effect */}
-                        <div className="absolute inset-0 -inset-12 backdrop-blur-2xl [mask-image:radial-gradient(circle,white_20%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                    {/* Spacer for Desktop (replaces Menu) */}
+                    <div className="hidden md:block w-32" />
 
-                        {/* Always visible subtle blur */}
-                        <div className="absolute inset-0 -inset-8 backdrop-blur-sm [mask-image:radial-gradient(circle,white_10%,transparent_60%)] pointer-events-none" />
-
+                    {/* Center: Logo (Signature) */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group pointer-events-none">
                         <span
-                            className="relative text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-logo font-bold select-none cursor-default transition-all duration-500 group-hover:scale-110"
+                            className="relative text-3xl sm:text-4xl text-black dark:text-white font-logo font-bold select-none cursor-default transition-all duration-500 group-hover:scale-110 tracking-widest pointer-events-auto"
                             style={{
                                 fontFamily: "'Brush Script MT', cursive, serif",
-                                textShadow: "0 0 20px rgba(195, 228, 29, 0.4), 0 0 40px rgba(195, 228, 29, 0.1)",
-                                filter: "drop-shadow(0 0 10px rgba(255,255,255,0.2))"
+                                textShadow: "0 0 25px rgba(195, 228, 29, 0.4)"
                             }}
                         >
                             SG
                         </span>
                     </div>
 
-                    {/* Socials & Theme Toggle (Right) */}
-                    <div className="flex items-center gap-3 sm:gap-6 ml-auto">
-                        <div className="hidden xs:flex items-center gap-4 sm:gap-6 mr-2 sm:mr-4 border-r border-neutral-100 dark:border-neutral-800 pr-4 sm:pr-6">
-                            <a
-                                href="https://github.com/ShvetGhareWork"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group relative flex flex-col items-center justify-center p-2 text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
-                            >
-                                <Github size={20} strokeWidth={1.5} className="w-5 h-5 sm:w-6 sm:h-6" />
-                                <span className="absolute top-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none translate-y-1 group-hover:translate-y-0">
-                                    GITHUB
-                                </span>
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/shvetghare1234"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group relative flex flex-col items-center justify-center p-2 text-neutral-400 hover:text-black dark:hover:text-white transition-colors duration-300"
-                            >
-                                <Linkedin size={20} strokeWidth={1.5} className="w-5 h-5 sm:w-6 sm:h-6" />
-                                <span className="absolute top-12 font-mono text-[9px] font-black tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap bg-black px-2 py-1 rounded-sm pointer-events-none translate-y-1 group-hover:translate-y-0">
-                                    LINKEDIN
-                                </span>
-                            </a>
-                        </div>
+                    {/* Right: Theme Toggle */}
+                    <div className="flex items-center w-32 justify-end">
                         <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
                     </div>
                 </nav>
             </header>
 
-            {/* Centered name */}
-            <div className="flex flex-col items-center justify-center min-h-screen pt-24 pb-16 px-4 text-center">
-                <div className="relative flex flex-col items-center justify-center w-full max-w-7xl mx-auto">
+            {/* Main Content: Funnel Layout */}
+            <div className="relative min-h-screen flex items-center justify-center px-6 sm:px-10 md:px-16 lg:px-24 pt-20">
+                <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl mx-auto gap-12 lg:gap-20">
 
+                    {/* Left: Information Pile */}
+                    <div className="relative z-20 flex flex-col items-start text-left w-full lg:w-[65%] order-2 lg:order-1">
 
-                    {/* Name container with refined spacing */}
-                    <div
-                        className="relative z-0 w-full flex flex-col items-center py-12"
-                        style={{ fontSize: "clamp(80px, 16vw, 420px)" }}
-                    >
-                        <div className="leading-[0.85] tracking-tighter">
+                        {/* Role Descriptor (Enhanced for Audit) */}
+                        <div className="mb-4 sm:mb-6">
+                            <span className="inline-block font-mono text-accent text-[11px] sm:text-[12px] font-black tracking-[0.4em] uppercase animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                                Full-Stack Engineer ·
+                            </span>
+                        </div>
+
+                        {/* Name (Big, Left Aligned) */}
+                        <div
+                            className="relative flex flex-col items-start leading-[0.85] tracking-tighter mb-8 sm:mb-10"
+                            style={{ fontSize: "clamp(60px, 12vw, 220px)" }}
+                        >
                             <BlurText
                                 text="SHVET"
                                 delay={80}
                                 animateBy="letters"
                                 direction="top"
-                                className="font-sans font-black uppercase text-accent opacity-90"
+                                className="font-sans font-black uppercase text-black dark:text-white"
                             />
+                            <div className="-mt-[0.05em]">
+                                <BlurText
+                                    text="GHARE"
+                                    delay={100}
+                                    animateBy="letters"
+                                    direction="top"
+                                    className="font-sans font-black uppercase text-accent"
+                                />
+                            </div>
                         </div>
-                        <div className="leading-[0.85] tracking-tighter -mt-[0.1em]">
-                            <BlurText
-                                text="GHARE"
-                                delay={100}
-                                animateBy="letters"
-                                direction="top"
-                                className="font-sans font-black uppercase text-accent opacity-90"
-                            />
+
+                        {/* Tagline (High-Contrast White, Corrected for Audit) */}
+                        <div className="max-w-xl mb-12 sm:mb-16">
+                            <p className="text-[20px] sm:text-[22px] md:text-[24px] font-medium text-black dark:text-white leading-relaxed tracking-tight opacity-100">
+                                Designing human experiences in code. Full-stack software engineer obsessed with high-fidelity interaction and scalable performance.
+                            </p>
+                        </div>
+
+                        {/* Funnel CTAs */}
+                        <div className="flex flex-wrap gap-4 sm:gap-6 w-full sm:w-auto">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.5 }}
+                                viewport={{ once: true }}
+                                className="mt-2 sm:mt-4"
+                            >
+                                <a
+                                    href="#projects"
+                                    className="inline-block bg-accent text-black font-mono font-black text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] px-8 sm:px-12 py-4 sm:py-5 uppercase transition-all hover:translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_#000000] sm:hover:shadow-[10px_10px_0_0_#000000] dark:hover:shadow-[8px_8px_0_0_#ffffff] sm:dark:hover:shadow-[10px_10px_0_0_#ffffff]"
+                                >
+                                    SEE_MY_WORK
+                                </a>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.5 }}
+                                viewport={{ once: true }}
+                                className="mt-2 sm:mt-4"
+                            >
+                                <a
+                                    href="#contact"
+                                    className="inline-block border-2 border-accent bg-transparent text-accent font-mono font-black text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] px-8 sm:px-12 py-4 sm:py-5 uppercase transition-all"
+                                >
+                                    GET_IN_TOUCH
+                                </a>
+                            </motion.div>
                         </div>
                     </div>
 
-                    {/* Profile photo — refined dimensions and overlap */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+                    {/* Right: Portrait (Expanded & Cropped to hide tag) */}
+                    <div className="relative w-[90%] max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] lg:w-[40%] lg:absolute lg:right-4 xl:right-[5vw] top-1/2 lg:-translate-y-1/2 z-10 order-1 lg:order-2">
                         <div
-                            className="overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] ring-4 sm:ring-8 ring-white/5 dark:ring-black/10 bg-neutral-200 dark:bg-neutral-800 pointer-events-auto cursor-pointer"
+                            className="relative overflow-hidden shadow-2xl group cursor-pointer transition-all duration-500 rounded-[40px] sm:rounded-[60px] lg:rounded-[80px]"
                             style={{
-                                width: "clamp(100px, 15vw, 220px)",
-                                height: "clamp(150px, 22vw, 330px)",
-                                borderRadius: "clamp(40px, 6vw, 80px)",
+                                width: "100%",
+                                aspectRatio: "5/5",
                             }}
                         >
                             <img
                                 src="/images/hero-profile.jpg"
                                 alt="SHVET GHARE"
-                                className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 hover:brightness-100 transition-all duration-700 transform hover:scale-105"
+                                className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 scale-110"
                             />
+                            {/* Simple Interactive Overlay */}
+                            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                         </div>
                     </div>
-                </div>
-
-                {/* Tagline */}
-                <div className="mt-8 sm:mt-12 md:mt-16 max-w-[260px] sm:max-w-md md:max-w-xl px-4">
-                    <BlurText
-                        text="Designing human experiences in code."
-                        delay={100}
-                        animateBy="words"
-                        direction="top"
-                        className="font-sans text-[14px] sm:text-[18px] md:text-[22px] lg:text-[24px] text-neutral-600 dark:text-neutral-400 tracking-tight font-medium"
-                    />
                 </div>
             </div>
 
             {/* Scroll indicator */}
-            <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3">
+                <span className="font-mono text-[9px] font-black tracking-[0.4em] text-neutral-400 dark:text-neutral-600 uppercase">SCROLL</span>
                 <button
                     type="button"
-                    className="p-2 text-neutral-400 hover:text-black dark:hover:text-white transition-all duration-300 animate-bounce"
+                    className="p-2 text-neutral-400 hover:text-accent transition-all duration-300 animate-bounce"
                     aria-label="Scroll down"
                     onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
                 >
-                    <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
+                    <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1} />
                 </button>
             </div>
         </section>

@@ -81,6 +81,7 @@ export default function CinematicPretextBio({
     // 1. Prepare: Run this once (or when text/font changes)
     // Pretext handles all languages, emojis, and bidi layout off-DOM.
     const prepared = useMemo(() => {
+        if (typeof window === 'undefined') return null;
         try {
             return prepareWithSegments(text, font);
         } catch (e) {

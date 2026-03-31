@@ -7,6 +7,7 @@ export const projects: Project[] = [
     description: "Specially-abled learning platform with an automated FFmpeg captioning pipeline (n8n) and secure JWT-based video streaming.", 
     technologies: ["Next.js", "n8n", "FFmpeg", "JWT", "MongoDB"],
     year: "2026", 
+    image: "/projects/edu-able.png",
     href: "https://edu-able.vercel.app/" 
   },
   {
@@ -15,6 +16,7 @@ export const projects: Project[] = [
   description: "AI-powered personal finance mentor for Indian retail investors — portfolio X-Ray with true XIRR, fund overlap heatmap, tax wizard, and Money Health Score.",
   technologies: ["React", "Tailwind CSS", "Chart.js", "Gemini AI", "ExcelJS"],
   year: "2026",
+  image: "/projects/niveshiq.png",
   href: "https://niveshiq-tau.vercel.app/"
 },
   { 
@@ -23,15 +25,8 @@ export const projects: Project[] = [
     description: "Personalized AI profiling system mapping traits and skills to real-time industrial demand for demand-driven career paths.", 
     technologies: ["Next.js", "OpenAI", "PostgreSQL", "Prisma"],
     year: "2025", 
+    image: "/projects/career-path.png",
     href: "https://career-path-ai-frontend.vercel.app/" 
-  },
-  { 
-    category: "AI & WEB3", 
-    title: "OpenGuild", 
-    description: "AI project-matching engine with a token-based incentive economy and real-time Socket.IO features for builder communities.", 
-    technologies: ["React", "Socket.IO", "Ethereum", "Solidity", "Node.js"],
-    year: "2025", 
-    href: "https://openguild.vercel.app/" 
   },
   { 
     category: "AI & ECOMMERCE", 
@@ -39,9 +34,18 @@ export const projects: Project[] = [
     description: "AI-enhanced E-commerce platform featuring a Zepto-sourced dummy product database with 8 Gemini-powered modules and secure Razorpay integration.", 
     technologies: ["MongoDB", "Express", "React", "Node.js", "Gemini AI", "Razorpay"],
     year: "2025", 
+    image: "/projects/luxevault.png",
     href: "https://ai-enhanced-e-commerce-platform.vercel.app/" 
   },
-  
+  { 
+    category: "AI & WEB3", 
+    title: "OpenGuild", 
+    description: "AI project-matching engine with a token-based incentive economy and real-time Socket.IO features for builder communities.", 
+    technologies: ["React", "Socket.IO", "Ethereum", "Solidity", "Node.js"],
+    year: "2025", 
+    image: "/projects/openguild.png", // Placeholder if needed
+    href: "https://openguild.vercel.app/" 
+  },
 ];
 
 export const experiences: Experience[] = [
@@ -54,7 +58,7 @@ export const experiences: Experience[] = [
       "Developed a real-time solution addressing complex automated workflows using modern tech stacks.",
       "Recognized for innovative system design and rapid implementation under high-pressure constraints."
     ] 
-  },
+  }
 ];
 
 export const education: Education[] = [
@@ -62,7 +66,7 @@ export const education: Education[] = [
     institution: "Universal College of Engineering, Mumbai", 
     degree: "B.E. in Computer Engineering", 
     years: "2023 — PRESENT", 
-    award: "SGPA: 9.39" 
+    award: "SGPA: 9.39 (Top of Batch)" 
   },
   { 
     institution: "Annasaheb Vartak College, Vasai", 
@@ -98,7 +102,7 @@ export const skillCategories: SkillCategory[] = [
 export const articles: Article[] = [
   { 
     category: "CERTIFICATION", 
-    title: "AWS Solutions Architect(UDEMY)", 
+    title: "AWS Solutions Architect (UDEMY)", 
     excerpt: "Certified Solutions Architect – Associate. Proficient in designing secure, resilient, and high-performing applications on AWS.", 
     readTime: "ISSUED 2025", 
     href: "" 
@@ -112,22 +116,16 @@ export const articles: Article[] = [
   },
   { 
     category: "AWARDS & LEADERSHIP", 
-    title: "Cultural Secretary", 
-    excerpt: "Elected as Cultural Secretary of the College Student Council. Previously served as Education Minister in School Council.", 
+    title: "Cultural Secretary (Leadership)", 
+    excerpt: "Elected as Cultural Secretary of the College Student Council, managing events for 2,000+ students and overseeing council operations.", 
     readTime: "2024 — PRESENT", 
-    href: "#" 
-  },
-  { 
-    category: "AWARDS & COMPETITION", 
-    title: "Intra-College Sports Winner", 
-    excerpt: "Recognized as the Intra-College Volleyball Winner for demonstrating exceptional team coordination and competitive spirit.", 
-    readTime: "2025", 
     href: "#" 
   },
 ];
 
 export const stats = [
-  { num: "05+", label: "TOTAL PROJECTS" },
-  { num: "9.39", label: "CUMULATIVE SGPA" },
-  { num: "05+", label: "CERTIFICATIONS" },
+  { num: "02+", label: "YEARS EXP" },
+  { num: "150+", label: "COMMITS / MO" },
+  { num: "9.39", label: "BATCH TOPPER SGPA" },
+  { num: "05+", label: "PLATFORM SHIPPED" },
 ];

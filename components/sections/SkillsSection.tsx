@@ -44,6 +44,16 @@ export default function SkillsSection() {
         >
             {/* Header */}
             <div className="mb-16 md:mb-24 max-w-7xl mx-auto w-full">
+                {/* Section Label */}
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-400 mb-6"
+                >
+                    04 / SKILLS
+                </motion.p>
                 <div className="flex flex-col gap-4 md:gap-6">
                     <h2 className="font-sans font-black text-[clamp(64px,18vw,160px)] tracking-tighter uppercase leading-[0.75] text-black dark:text-white">
                         SKILLS
