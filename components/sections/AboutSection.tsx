@@ -29,12 +29,12 @@ export default function AboutSection() {
 
                     {/* Left Column: Title & Description */}
                     <div className="lg:col-span-6 space-y-8 sm:space-y-12">
-                            <h2 className="font-sans font-black text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-accent mb-4">
-                                SHVET GHARE
-                            </h2>
-                            <h2 className="font-sans font-black text-7xl sm:text-8xl md:text-9xl lg:text-[120px] tracking-tighter uppercase leading-[0.8] text-black dark:text-white">
-                                ABOUT
-                            </h2>
+                        <h2 className="font-sans font-black text-4xl sm:text-5xl md:text-6xl tracking-tight uppercase text-accent mb-4">
+                            SHVET GHARE
+                        </h2>
+                        <h2 className="font-sans font-black text-7xl sm:text-8xl md:text-9xl lg:text-[120px] tracking-tighter uppercase leading-[0.8] text-black dark:text-white">
+                            ABOUT
+                        </h2>
 
                         <div className="space-y-8 sm:space-y-10 max-w-lg">
                             <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] lg:text-[19px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
@@ -45,12 +45,12 @@ export default function AboutSection() {
                                 deployment — with a 9.39 SGPA in Computer Engineering
                             </p>
 
-                            <div className="flex items-center gap-3">
+                            {/* <div className="flex items-center gap-3">
                                 <div className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse flex-shrink-0" />
                                 <span className="font-mono text-[10px] font-black tracking-[0.2em] uppercase text-neutral-400 dark:text-neutral-500">
                                     AVAILABLE FOR PROJECTS
                                 </span>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
