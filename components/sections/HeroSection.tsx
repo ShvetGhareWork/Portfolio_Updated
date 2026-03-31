@@ -142,13 +142,13 @@ export default function HeroSection() {
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group">
                         {/* The Glassy Halo effect */}
                         <div className="absolute inset-0 -inset-12 backdrop-blur-2xl [mask-image:radial-gradient(circle,white_20%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                        
+
                         {/* Always visible subtle blur */}
                         <div className="absolute inset-0 -inset-8 backdrop-blur-sm [mask-image:radial-gradient(circle,white_10%,transparent_60%)] pointer-events-none" />
-                        
+
                         <span
                             className="relative text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-logo font-bold select-none cursor-default transition-all duration-500 group-hover:scale-110"
-                            style={{ 
+                            style={{
                                 fontFamily: "'Brush Script MT', cursive, serif",
                                 textShadow: "0 0 20px rgba(195, 228, 29, 0.4), 0 0 40px rgba(195, 228, 29, 0.1)",
                                 filter: "drop-shadow(0 0 10px rgba(255,255,255,0.2))"
@@ -192,7 +192,7 @@ export default function HeroSection() {
             {/* Centered name */}
             <div className="flex flex-col items-center justify-center min-h-screen pt-24 pb-16 px-4 text-center">
                 <div className="relative flex flex-col items-center justify-center w-full max-w-7xl mx-auto">
-                    
+
 
                     {/* Name container with refined spacing */}
                     <div

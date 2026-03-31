@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import CinematicPretextBio from "./CinematicPretextBio";
 
 const skills = [
     "REACT", "NEXT.JS", "NODE.JS", "MONGODB", "AWS", "DOCKER", "KUBERNETES", "JAVA"
@@ -37,13 +38,12 @@ export default function AboutSection() {
                         </h2>
 
                         <div className="space-y-8 sm:space-y-10 max-w-lg">
-                            <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] lg:text-[19px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
-                                Full-Stack Software Engineer with hands-on experience building and deploying scalable web
-                                applications using React, Node.js, MongoDB, and AWS (EC2, S3, Route 53). Developed 4 production
-                                ready systems integrating AI APIs, real-time communication (Socket.IO), and secure authentication
-                                (JWT, OAuth). Proven ability to own the full development lifecycle — from system design to cloud
-                                deployment — with a 9.39 SGPA in Computer Engineering
-                            </p>
+                            <CinematicPretextBio
+                                text="Full-Stack Software Engineer with hands-on experience building and deploying scalable web applications using React, Node.js, MongoDB, and AWS (EC2, S3, Route 53). Developed 4 production-ready systems integrating AI APIs, real-time communication (Socket.IO), and secure authentication (JWT, OAuth). Proven ability to own the full development lifecycle — from system design to cloud deployment — with a 9.39 SGPA in Computer Engineering"
+                                font='500 18px Inter, -apple-system, system-ui, sans-serif'
+                                lineHeight={28}
+                                className="font-sans text-neutral-600 dark:text-neutral-400 font-medium"
+                            />
 
                             {/* <div className="flex items-center gap-3">
                                 <div className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse flex-shrink-0" />
