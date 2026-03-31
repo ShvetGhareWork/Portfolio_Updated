@@ -74,7 +74,7 @@ export default function Sidebar() {
                         <motion.div
                             animate={{
                                 scale: activeSectionId === section.id ? 1.5 : 1,
-                                backgroundColor: activeSectionId === section.id ? "#C3E41D" : "transparent",
+                                backgroundColor: activeSectionId === section.id ? "#C3E41D" : "rgba(195, 228, 29, 0)",
                                 borderColor: activeSectionId === section.id ? "#C3E41D" : "#888",
                             }}
                             className={`w-1.5 h-1.5 rounded-full border border-neutral-300 dark:border-neutral-800 transition-colors duration-300 group-hover:border-accent`}

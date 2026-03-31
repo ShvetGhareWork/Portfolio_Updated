@@ -82,7 +82,7 @@ export default function HeroSection() {
                 <nav className="flex items-center justify-between max-w-screen-2xl mx-auto relative">
 
                     {/* Menu button (Left) */}
-                    <div className="relative">
+                    <div className="relative md:hidden">
                         <button
                             ref={buttonRef}
                             type="button"
@@ -159,7 +159,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* Socials & Theme Toggle (Right) */}
-                    <div className="flex items-center gap-3 sm:gap-6">
+                    <div className="flex items-center gap-3 sm:gap-6 ml-auto">
                         <div className="hidden xs:flex items-center gap-4 sm:gap-6 mr-2 sm:mr-4 border-r border-neutral-100 dark:border-neutral-800 pr-4 sm:pr-6">
                             <a
                                 href="https://github.com/ShvetGhareWork"
