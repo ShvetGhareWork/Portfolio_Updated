@@ -23,8 +23,16 @@ export default function HeroSection() {
     const isDark = theme === "dark";
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("hero");
+    const [isMobile, setIsMobile] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         const observerOptions = {
@@ -78,6 +86,42 @@ export default function HeroSection() {
             id="hero"
             className="relative min-h-screen bg-white transition-colors duration-700 dark:bg-black text-black dark:text-white overflow-hidden"
         >
+            {/* Pixelated Persona Guide (Laptop Only) */}
+            {!isMobile && (
+                <motion.div
+                    initial={{ x: -250, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                        duration: 5,
+                        delay: 0.5,
+                        ease: [0.16, 1, 0.3, 1]
+                    }}
+                    className="fixed bottom-[-9vh] left-[max(5px,1vw)] z-[100] w-32 sm:w-40 md:w-48 aspect-square pointer-events-none"
+                    style={{
+                        backgroundColor: 'transparent',
+                        border: 'none',
+                        outline: 'none',
+                    }}
+                >
+                    <div className="relative w-full h-full">
+                        <video
+                            src="/videos/video.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-contain"
+                            style={{
+                                imageRendering: 'pixelated',
+                                filter: 'drop-shadow(0 0 10px #C3E41D)',
+                                maskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)',
+                                WebkitMaskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)',
+                            }}
+                        />
+                    </div>
+                </motion.div>
+            )}
+
             {/* Header / Navbar (Simplified for Minimalist Audit) */}
             <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-6 sm:py-10 transition-all duration-500 bg-gradient-to-b from-black/10 to-transparent pointer-events-none">
                 <nav className="flex items-center justify-between max-w-screen-2xl mx-auto relative px-4 pointer-events-auto">
@@ -235,23 +279,43 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right: Portrait (Expanded & Cropped to hide tag) */}
-                    <div className="relative w-[90%] max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] lg:w-[40%] lg:absolute lg:right-4 xl:right-[5vw] top-1/2 lg:-translate-y-1/2 z-10 order-1 lg:order-2">
-                        <div
-                            className="relative overflow-hidden shadow-2xl group cursor-pointer transition-all duration-500 rounded-[40px] sm:rounded-[60px] lg:rounded-[80px]"
-                            style={{
-                                width: "100%",
-                                aspectRatio: "5/5",
+                    {/* Right: Portrait (Bottom Aligned and Floating) */}
+                    <div className="relative w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] lg:w-[45%] lg:absolute lg:right-4 xl:right-[5vw] lg:bottom-0 z-30 order-1 lg:order-2 flex justify-center items-end">
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{
+                                opacity: 1,
+                                y: [10, -10, 10],
                             }}
+                            transition={{
+                                opacity: { duration: 1.5 },
+                                y: { duration: 12, repeat: Infinity, ease: "easeInOut" }
+                            }}
+                            className="relative w-full aspect-[4/5] group"
                         >
-                            <img
-                                src="/images/hero-profile.jpg"
-                                alt="SHVET GHARE"
-                                className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 scale-110"
-                            />
-                            {/* Simple Interactive Overlay */}
-                            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
-                        </div>
+                            {/* Decorative Glow */}
+                            <div className="absolute rounded-full hidden" />
+
+                            <div
+                                className="relative w-full h-full overflow-hidden rounded-t-[100px] sm:rounded-t-[140px] lg:rounded-t-[180px]"
+                                style={{
+                                    maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+                                }}
+                            >
+                                <img
+                                    className="w-full h-full object-cover scale-110 object-top transition-all duration-1000"
+                                    alt="Shvet Portrait"
+                                    src="/images/hero-profile.jpg"
+                                />
+
+                                {/* Simple Interactive Overlay */}
+                                <div className="absolute inset-0 group-hover:bg-transparent duration-500" />
+                            </div>
+
+                            {/* Floating Metadata Tag */}
+
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -270,4 +334,4 @@ export default function HeroSection() {
             </div>
         </section>
     );
-}
+}   
