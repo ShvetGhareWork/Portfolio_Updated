@@ -6,27 +6,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
 
-const categories = ["ALL PROJECTS", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & ECOMMERCE", "FINTECH & AI"];
+const categories = ["ALL PROJECTS", "HEALTH & AI", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & ECOMMERCE", "FINTECH & AI"];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
     return (
         <motion.a
-            layout="position"
-            initial={{ opacity: 0, y: 30, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.98 }}
+            layout
+            initial={{ opacity: 0, scale: 0.92, filter: "blur(10px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+            whileHover={{ y: -5, scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
             transition={{
-                opacity: { duration: 0.6, ease: "easeInOut" },
-                y: { duration: 0.8, ease: [22, 10, 36, 1], delay: index * 0.06 },
-                scale: { duration: 0.5, ease: "easeInOut" },
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+                mass: 1,
+                opacity: { duration: 0.4 },
+                filter: { duration: 0.4 }
             }}
             href={project.href ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-100 dark:border-neutral-800 transition-all duration-700 hover:border-accent hover:bg-white dark:hover:bg-neutral-950 overflow-hidden"
+            className="group flex flex-col bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-100 dark:border-neutral-800 transition-colors duration-500 hover:border-accent hover:bg-white dark:hover:bg-neutral-950 overflow-hidden"
         >
             {/* Visual Thumbnail */}
-            <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+            <div className="relative w-full aspect-video overflow-hidden bg-neutral-200 dark:bg-neutral-800">
                 {project.image ? (
                     <img
                         src={project.image}
@@ -48,39 +53,39 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 </div>
             </div>
 
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-                <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-sans font-black text-2xl sm:text-3xl leading-none tracking-tighter uppercase text-black dark:text-white group-hover:text-accent transition-colors duration-300">
+            <div className="p-5 sm:p-6 flex flex-col flex-1">
+                <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-sans font-black text-xl sm:text-2xl leading-tight tracking-tighter uppercase text-black dark:text-white group-hover:text-accent transition-colors duration-300">
                         {project.title}
                     </h3>
                 </div>
 
-                <p className="font-sans text-[13px] sm:text-[14px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium mb-8">
+                <p className="font-sans text-[12px] sm:text-[13px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium mb-6">
                     {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-6 mt-auto">
                     {project.technologies.slice(0, 4).map((tech) => (
                         <span
                             key={tech}
-                            className="font-mono text-[9px] font-bold text-neutral-400 dark:text-neutral-500 border border-neutral-100 dark:border-neutral-800 px-2 py-1 uppercase tracking-wider group-hover:border-accent/30 transition-colors duration-300"
+                            className="font-mono text-[8px] font-bold text-neutral-400 dark:text-neutral-500 border border-neutral-100 dark:border-neutral-800 px-1.5 py-0.5 uppercase tracking-wider group-hover:border-accent/30 transition-colors duration-300"
                         >
                             {tech}
                         </span>
                     ))}
                     {project.technologies.length > 4 && (
-                        <span className="font-mono text-[9px] font-bold text-neutral-500 border border-transparent px-2 py-1 uppercase">
+                        <span className="font-mono text-[8px] font-bold text-neutral-500 border border-transparent px-1.5 py-0.5 uppercase">
                             +{project.technologies.length - 4}
                         </span>
                     )}
                 </div>
 
-                <div className="pt-6 border-t border-neutral-100 dark:border-neutral-900 flex justify-between items-center group-hover:border-accent/30 transition-colors duration-300">
-                    <span className="font-mono text-[11px] font-bold text-neutral-400 dark:text-neutral-600 tracking-widest">
+                <div className="pt-4 border-t border-neutral-100 dark:border-neutral-900 flex justify-between items-center group-hover:border-accent/30 transition-colors duration-300">
+                    <span className="font-mono text-[10px] font-bold text-neutral-400 dark:text-neutral-600 tracking-widest">
                         {project.year}
                     </span>
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-100 dark:border-neutral-800 group-hover:bg-accent group-hover:border-accent group-hover:text-black transition-all duration-300">
-                        <ArrowUpRight size={18} strokeWidth={2.5} />
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full border border-neutral-100 dark:border-neutral-800 group-hover:bg-accent group-hover:border-accent group-hover:text-black transition-all duration-300">
+                        <ArrowUpRight size={14} strokeWidth={2.5} />
                     </div>
                 </div>
             </div>
@@ -155,7 +160,7 @@ export default function ProjectsSection() {
             <div className="max-w-7xl mx-auto w-full relative z-10">
                 <motion.div
                     layout
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ type: "spring", stiffness: 400, damping: 40 }}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1"
                 >
                     <AnimatePresence mode="popLayout" initial={false}>

@@ -2,6 +2,15 @@ import type { Project, Experience, Education, Article, SkillCategory } from "./t
 
 export const projects: Project[] = [
   { 
+    category: "HEALTH & AI", 
+    title: "NutriSnap", 
+    description: "High-performance health and fitness ecosystem bridging members and pro coaches through real-time tracking, Groq-powered nutritional analysis, and secure Razorpay integration.", 
+    technologies: ["Next.js", "Node.js", "MongoDB", "Gemini AI", "Razorpay", "Cloudinary"],
+    year: "2026", 
+    image: "/projects/nutrisnap.png",
+    href: "https://nutrisnap-eight.vercel.app/" 
+  },
+  { 
     category: "LMS & EDUCATION", 
     title: "EduAble", 
     description: "Specially-abled learning platform with an automated FFmpeg captioning pipeline (n8n) and secure JWT-based video streaming.", 
