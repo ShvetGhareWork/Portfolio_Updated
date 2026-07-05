@@ -5,6 +5,7 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import EducationSection from "@/components/sections/EducationSection";
 import WritingSection from "@/components/sections/WritingSection";
+import LeetCodeSection from "@/components/sections/LeetCodeSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Sidebar from "@/components/ui/Sidebar";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <SkillsSection />
         <EducationSection />
         <WritingSection />
+        <LeetCodeSection />
         <ContactSection />
       </main>
     </>

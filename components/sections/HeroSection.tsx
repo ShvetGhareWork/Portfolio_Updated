@@ -15,6 +15,7 @@ const menuItems = [
     { label: "SKILLS", href: "#skills" },
     { label: "EDUCATION", href: "#education" },
     { label: "ACCOLADES", href: "#writing" },
+    { label: "LEETCODE", href: "#leetcode" },
     { label: "CONTACT", href: "#contact" },
 ];
 
@@ -50,7 +51,7 @@ export default function HeroSection() {
         };
 
         const observer = new IntersectionObserver(handleIntersect, observerOptions);
-        const sectionIds = ["hero", "about", "projects", "experience", "skills", "education", "writing", "contact"];
+        const sectionIds = ["hero", "about", "projects", "experience", "skills", "education", "writing", "leetcode", "contact"];
 
         sectionIds.forEach((id) => {
             const el = document.getElementById(id);
