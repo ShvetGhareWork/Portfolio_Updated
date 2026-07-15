@@ -10,6 +10,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "4",
+    title: "Atlas",
+    description: "Event-driven microservices platform for supply chain & logistics — built with Spring Boot, Apache Kafka, Redis, and Python FastAPI. Features async order processing, AI-powered delivery prediction, JWT security, CI/CD via GitHub Actions, and Kubernetes deployment on AWS EKS.",
+    tech: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
+    github: "https://github.com/ShvetGhareWork/Atlas",
+    live: "https://github.com/ShvetGhareWork/Atlas",
+    image: "/projects/atlas.png"
+  },
+  {
+    id: "5",
+    title: "Tickettizer",
+    description: "High-concurrency distributed ticket engine featuring Spring Boot, Redis Lua locks, Kafka streams, JWT auth, Razorpay payments, and inline QR generation.",
+    tech: ["Spring Boot", "Redis", "Kafka", "JWT", "Razorpay", "Java", "Lua"],
+    github: "https://github.com/ShvetGhareWork/Ticketizer",
+    live: "https://github.com/ShvetGhareWork/Ticketizer",
+    image: "/projects/tickettizer.png"
+  },
+  {
     id: "1",
     title: "Quantum Cloud Dashboard",
     description: "A high-performance monitoring dashboard for distributed quantum computing clusters. Real-time telemetry, resource allocation, and predictive maintenance metrics.",

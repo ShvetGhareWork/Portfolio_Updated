@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
 
-const categories = ["ALL PROJECTS", "HEALTH & AI", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & ECOMMERCE", "FINTECH & AI"];
+const categories = ["ALL PROJECTS", "HEALTH & AI", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & ECOMMERCE", "FINTECH & AI", "SYSTEMS & AI", "DISTRIBUTED SYSTEMS"];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
     return (

@@ -1,6 +1,24 @@
 import type { Project, Experience, Education, Article, SkillCategory } from "./types";
 
 export const projects: Project[] = [
+  {
+    category: "SYSTEMS & AI",
+    title: "Atlas",
+    description: "Event-driven microservices platform for supply chain & logistics — built with Spring Boot, Apache Kafka, Redis, and Python FastAPI. Features async order processing, AI-powered delivery prediction, JWT security, CI/CD via GitHub Actions, and Kubernetes deployment on AWS EKS.",
+    technologies: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
+    year: "2026",
+    image: "/projects/atlas.png",
+    href: "https://github.com/ShvetGhareWork/Atlas"
+  },
+  {
+    category: "DISTRIBUTED SYSTEMS",
+    title: "Tickettizer",
+    description: "High-concurrency distributed ticket engine featuring Spring Boot, Redis Lua locks, Kafka streams, JWT auth, Razorpay payments, and inline QR generation.",
+    technologies: ["Spring Boot", "Redis", "Kafka", "JWT", "Razorpay", "Java", "Lua"],
+    year: "2026",
+    image: "/projects/tickettizer.png",
+    href: "https://github.com/ShvetGhareWork/Ticketizer"
+  },
   { 
     category: "HEALTH & AI", 
     title: "NutriSnap", 
