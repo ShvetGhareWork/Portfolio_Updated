@@ -12,11 +12,11 @@ export const projects: Project[] = [
   },
   {
     category: "DISTRIBUTED SYSTEMS",
-    title: "Tickettizer",
+    title: "Ticketizer",
     description: "High-concurrency distributed ticket engine featuring Spring Boot, Redis Lua locks, Kafka streams, JWT auth, Razorpay payments, and inline QR generation.",
     technologies: ["Spring Boot", "Redis", "Kafka", "JWT", "Razorpay", "Java", "Lua"],
     year: "2026",
-    image: "/projects/tickettizer.png",
+    image: "/projects/ticketizer.png",
     href: "https://github.com/ShvetGhareWork/Ticketizer"
   },
   { 
