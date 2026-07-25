@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import CinematicPretextBio from "./CinematicPretextBio";
 
 const skills = [
-    "REACT", "NEXT.JS", "NODE.JS", "MONGODB", "AWS", "DOCKER", "KUBERNETES", "JAVA"
+    "SPRING BOOT", "NEXT.JS", "NODE.JS", "REACT.JS", "MONGODB", "POSTGRESQL", "KAFKA", "REDIS", "DOCKER", "AWS", "JAVA", "PYTHON"
 ];
 
 const stats = [
-    { num: "01+", label: "YEARS EXPERIENCE" },
-    { num: "90", label: "COMMITS / MONTH" }
+    { num: "9.39", label: "SGPA / TOP 5-10%" },
+    { num: "08+", label: "PLATFORMS / SHIPPED" }
 ];
 
 export default function AboutSection() {
@@ -50,7 +50,7 @@ export default function AboutSection() {
 
                         <div className="space-y-8 sm:space-y-10 max-w-lg">
                             <CinematicPretextBio
-                                text="Full-Stack Software Engineer with hands-on experience building and deploying scalable web applications using React, Node.js, MongoDB, and AWS (EC2, S3, Route 53). Developed 4 production-ready systems integrating AI APIs, real-time communication (Socket.IO), and secure authentication (JWT, OAuth). Proven ability to own the full development lifecycle — from system design to cloud deployment — with a 9.39 SGPA in Computer Engineering"
+                                text="Full-Stack Software Engineer (9.39 SGPA, Top 5–10%) with 4 production-grade projects spanning distributed systems, AI-integrated fintech, and accessible EdTech. Proficient in Java Spring Boot, MERN stack, Python, Apache Kafka, Redis, PostgreSQL, Docker, and AWS. Proven ability to architect high-concurrency backends, design event-driven microservices, and ship AI-powered products end-to-end."
                                 font='500 18px Inter, -apple-system, system-ui, sans-serif'
                                 lineHeight={28}
                                 className="font-sans text-neutral-600 dark:text-neutral-400 font-medium"

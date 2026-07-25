@@ -76,15 +76,15 @@ export const projects: Project[] = [
 ];
 
 export const experiences: Experience[] = [
-  { 
-    dates: "2026", 
-    role: "Hackathon Winner", 
-    company: "CODEAUTOMATA VER. 2.0, CSMIT Panvel", 
+  {
+    dates: "FEB 2026 — PRESENT",
+    role: "Full-Stack Developer & Project Lead",
+    company: "EduAble  ·  Hackathon Project",
     bullets: [
-      "Secured 1st place in the intra-college hackathon competing against 90+ teams.",
-      "Developed a real-time solution addressing complex automated workflows using modern tech stacks.",
-      "Recognized for innovative system design and rapid implementation under high-pressure constraints."
-    ] 
+      "Reduced caption setup time by ~80% by engineering an automated pipeline — n8n webhooks + FFmpeg — that extracts audio and generates SRT subtitle files on every upload, eliminating all manual captioning effort.",
+      "Designed and deployed a full-stack LMS serving students across 3 disability categories (visual, hearing, cognitive), featuring accessible video streaming, AI-generated transcripts, and JWT-secured authentication — reducing content accessibility barriers for 100+ users.",
+      "Awarded 1st Place at CODE AUTOMATA VER. 2.0 (CSMIT Panvel) among 40+ competing teams, recognized for technical innovation in AI-driven accessibility and real-world social impact."
+    ]
   }
 ];
 
@@ -104,55 +104,84 @@ export const education: Education[] = [
 ];
 
 export const skillCategories: SkillCategory[] = [
-  { 
-    label: "LANGUAGES & FRAMEWORKS", 
-    skills: ["JavaScript", "Node.js", "React.js", "Next.js", "Express.js", "MongoDB", "Socket.IO", "Java"] 
+  {
+    label: "LANGUAGES",
+    skills: ["JavaScript", "Java", "Python", "C"]
   },
-  { 
-    label: "CLOUD & DEVOPS", 
-    skills: ["AWS (EC2, S3, IAM, Route 53)", "Docker", "Kubernetes", "Google Cloud Storage"] 
+  {
+    label: "FRAMEWORKS & LIBRARIES",
+    skills: ["Node.js", "React.js", "Next.js", "Express.js", "Spring Boot"]
   },
-  { 
-    label: "APIS & AUTH", 
-    skills: ["RESTful API Design", "JWT", "Google OAuth (Passport.js)", "Razorpay", "Google Gemini API"] 
+  {
+    label: "DATABASES & MESSAGING",
+    skills: ["MongoDB", "PostgreSQL", "Redis", "Apache Kafka"]
   },
-  { 
-    label: "TOOLS", 
-    skills: ["Git & GitHub", "Redis", "FFmpeg (WebAssembly)", "Postman"] 
+  {
+    label: "CLOUD & DEVOPS",
+    skills: ["AWS (EC2, S3, IAM, Route 53)", "Docker", "Google Cloud Storage", "GitHub Actions", "Prometheus", "Grafana", "Zipkin"]
   },
-  { 
-    label: "SPOKEN LANGUAGES", 
-    skills: ["English", "Marathi", "Hindi", "German (Learning)"] 
+  {
+    label: "APIS & AUTH",
+    skills: ["RESTful API Design", "JWT", "Google OAuth (Passport.js)", "HMAC-SHA256", "Razorpay"]
+  },
+  {
+    label: "TOOLS",
+    skills: ["Git & GitHub", "Postman", "Maven", "Lua Scripting", "FFmpeg", "n8n"]
+  },
+  {
+    label: "SPOKEN LANGUAGES",
+    skills: ["English", "Marathi", "Hindi", "German (Learning)"]
   },
 ];
 
 export const articles: Article[] = [
-  { 
-    category: "CERTIFICATION", 
-    title: "AWS Solutions Architect (UDEMY)", 
-    excerpt: "Certified Solutions Architect – Associate. Proficient in designing secure, resilient, and high-performing applications on AWS.", 
-    readTime: "ISSUED 2025", 
-    href: "" 
+  {
+    category: "CERTIFICATION",
+    title: "AWS Certified Solutions Architect – Associate",
+    excerpt: "Proficient in designing secure, resilient, and high-performing applications on AWS (EC2, S3, IAM, Route 53, EKS). Issued via Udemy.",
+    readTime: "ISSUED 2025",
+    href: ""
   },
-  { 
-    category: "CERTIFICATION", 
-    title: "MERN Stack Development", 
-    excerpt: "Completed Advanced Backend Bootcamp and Ultimate React Course, covering exhaustive full-stack system architecture.", 
-    readTime: "ISSUED 2025", 
-    href: "#" 
+  {
+    category: "CERTIFICATION",
+    title: "Backend Bootcamp + Ultimate React Course",
+    excerpt: "Completed Advanced Backend Bootcamp and Ultimate React Course, covering exhaustive full-stack system architecture and modern React patterns.",
+    readTime: "ISSUED 2025",
+    href: "#"
   },
-  { 
-    category: "AWARDS & LEADERSHIP", 
-    title: "Cultural Secretary (Leadership)", 
-    excerpt: "Elected as Cultural Secretary of the College Student Council, managing events for 2,000+ students and overseeing council operations.", 
-    readTime: "2024 — PRESENT", 
-    href: "#" 
+  {
+    category: "CERTIFICATION",
+    title: "Intro to Docker · MongoDB Basics · AWS Cloud Practitioner Essentials",
+    excerpt: "Hands-on certifications covering containerisation with Docker, NoSQL with MongoDB, and foundational cloud services on AWS.",
+    readTime: "ISSUED 2025",
+    href: "#"
+  },
+  {
+    category: "AWARDS & LEADERSHIP",
+    title: "Hackathon Winner — CODE AUTOMATA VER. 2.0",
+    excerpt: "Secured 1st Place at CSMIT Panvel among 50+ teams, recognised for technical innovation in AI-driven accessibility with EduAble LMS.",
+    readTime: "2026",
+    href: "#"
+  },
+  {
+    category: "AWARDS & LEADERSHIP",
+    title: "Cultural Secretary — College Student Council",
+    excerpt: "Elected Cultural Secretary at Universal College of Engineering, managing large-scale cultural events and overseeing council operations.",
+    readTime: "2024 — PRESENT",
+    href: "#"
+  },
+  {
+    category: "AWARDS & LEADERSHIP",
+    title: "LeetCode — 150+ Problems Solved",
+    excerpt: "Consistently solved 150+ problems across LinkedLists, Arrays, Trees, and more, sharpening algorithmic thinking and DSA fundamentals.",
+    readTime: "ONGOING",
+    href: "#"
   },
 ];
 
 export const stats = [
-  { num: "02+", label: "YEARS EXP" },
-  { num: "150+", label: "COMMITS / MO" },
-  { num: "9.39", label: "BATCH TOPPER SGPA" },
-  { num: "05+", label: "PLATFORM SHIPPED" },
+  { num: "9.39", label: "SGPA · TOP 5–10%" },
+  { num: "150+", label: "LEETCODE PROBLEMS" },
+  { num: "08+", label: "PLATFORMS SHIPPED" },
+  { num: "01", label: "HACKATHON WIN" },
 ];
