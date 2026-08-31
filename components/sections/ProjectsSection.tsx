@@ -5,10 +5,17 @@ import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
+import SystemTerminal from "@/components/ui/SystemTerminal";
 
 const categories = ["ALL PROJECTS", "HEALTH & AI", "LMS & EDUCATION", "AI & EDTECH", "AI & WEB3", "AI & ECOMMERCE", "FINTECH & AI", "SYSTEMS & AI", "DISTRIBUTED SYSTEMS"];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+    const terminalScenario = project.title.toLowerCase() === "ticketizer"
+        ? "ticketizer"
+        : project.title.toLowerCase() === "atlas"
+        ? "atlas"
+        : null;
+
     return (
         <motion.a
             layout
@@ -60,9 +67,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     </h3>
                 </div>
 
-                <p className="font-sans text-[12px] sm:text-[13px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium mb-6">
+                <p className="font-sans text-[12px] sm:text-[13px] text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium mb-4">
                     {project.description}
                 </p>
+
+                {terminalScenario && (
+                    <SystemTerminal scenario={terminalScenario} />
+                )}
 
                 <div className="flex flex-wrap gap-2 mb-6 mt-auto">
                     {project.technologies.slice(0, 4).map((tech) => (
