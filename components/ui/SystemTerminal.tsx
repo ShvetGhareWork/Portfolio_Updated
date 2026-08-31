@@ -54,7 +54,7 @@ export default function SystemTerminal({ scenario }: SystemTerminalProps) {
   const config = SCENARIO_CONFIGS[scenario];
   const [visibleCount, setVisibleCount] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
-  const outputEndRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isRunning) return;
@@ -72,8 +72,8 @@ export default function SystemTerminal({ scenario }: SystemTerminalProps) {
   }, [isRunning, visibleCount, config.lines.length]);
 
   useEffect(() => {
-    if (visibleCount > 0) {
-      outputEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (visibleCount > 0 && containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   }, [visibleCount]);
 
@@ -105,6 +105,7 @@ export default function SystemTerminal({ scenario }: SystemTerminalProps) {
     >
       {/* Terminal Content Region */}
       <div
+        ref={containerRef}
         className="flex-1 overflow-y-auto space-y-1.5 pr-1 scrollbar-thin scrollbar-thumb-[#BFFF00]/30"
         aria-live="polite"
         aria-atomic="false"
@@ -142,7 +143,6 @@ export default function SystemTerminal({ scenario }: SystemTerminalProps) {
             <span className="inline-block w-2 h-4 bg-[#BFFF00] animate-pulse select-none" />
           </div>
         )}
-        <div ref={outputEndRef} />
       </div>
 
       {/* Button Bar */}
