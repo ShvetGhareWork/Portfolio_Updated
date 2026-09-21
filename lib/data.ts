@@ -73,6 +73,24 @@ export const projects: Project[] = [
     image: "/projects/openguild.png", // Placeholder if needed
     href: "https://openguild.vercel.app/" 
   },
+  {
+    category: "DISTRIBUTED SYSTEMS",
+    title: "Self-Healing Microservice Architecture",
+    description: "Fault-tolerant microservice architecture featuring automated fault detection, health monitoring, dynamic rerouting, and self-healing mechanisms.",
+    technologies: ["Spring Boot", "Docker", "Kafka", "Redis", "Resilience4j", "Java"],
+    year: "2026",
+    image: "/projects/self-healing.png",
+    href: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture"
+  },
+  {
+    category: "SYSTEMS & AI",
+    title: "ZeroGrid",
+    description: "Intelligent grid management and optimization platform engineered for zero-latency event processing, dynamic routing, and automated infrastructure monitoring.",
+    technologies: ["Next.js", "TypeScript", "Node.js", "Python", "Tailwind CSS"],
+    year: "2026",
+    image: "/projects/zerogrid.png",
+    href: "https://github.com/hehemohit/zerogrid"
+  },
 ];
 
 export const experiences: Experience[] = [
