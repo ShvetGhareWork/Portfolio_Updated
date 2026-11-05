@@ -87,42 +87,6 @@ export default function HeroSection() {
             id="hero"
             className="relative min-h-screen bg-white transition-colors duration-700 dark:bg-black text-black dark:text-white overflow-hidden"
         >
-            {/* Pixelated Persona Guide (Laptop Only) */}
-            {!isMobile && (
-                <motion.div
-                    initial={{ x: -250, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{
-                        duration: 5,
-                        delay: 0.5,
-                        ease: [0.16, 1, 0.3, 1]
-                    }}
-                    className="fixed bottom-[-9vh] left-[max(5px,1vw)] z-[100] w-32 sm:w-40 md:w-48 aspect-square pointer-events-none"
-                    style={{
-                        backgroundColor: 'transparent',
-                        border: 'none',
-                        outline: 'none',
-                    }}
-                >
-                    <div className="relative w-full h-full">
-                        <video
-                            src="/videos/video.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-contain"
-                            style={{
-                                imageRendering: 'pixelated',
-                                filter: 'drop-shadow(0 0 10px #C3E41D)',
-                                maskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)',
-                                WebkitMaskImage: 'radial-gradient(circle at center, black 35%, transparent 65%)',
-                            }}
-                        />
-                    </div>
-                </motion.div>
-            )}
-
             {/* Header / Navbar (Simplified for Minimalist Audit) */}
             <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-6 sm:py-10 transition-all duration-500 bg-gradient-to-b from-black/10 to-transparent pointer-events-none">
                 <nav className="flex items-center justify-between max-w-screen-2xl mx-auto relative px-4 pointer-events-auto">

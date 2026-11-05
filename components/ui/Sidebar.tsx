@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, FileText } from "lucide-react";
 
 const sections = [
     { id: "hero", label: "HOME" },
@@ -117,6 +117,7 @@ export default function Sidebar() {
             {/* ── Social icons ── */}
             <div className="mt-auto flex flex-col items-center gap-4 pt-4">
                 {[
+                    { href: "/Shvet_Resume.pdf", icon: FileText, label: "RESUME" },
                     { href: "https://github.com/ShvetGhareWork", icon: Github, label: "GITHUB" },
                     { href: "https://www.linkedin.com/in/shvetghare1234", icon: Linkedin, label: "LINKEDIN" },
                 ].map(({ href, icon: Icon, label }) => (
