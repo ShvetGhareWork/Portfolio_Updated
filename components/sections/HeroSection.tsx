@@ -15,7 +15,7 @@ const menuItems = [
     { label: "SKILLS", href: "#skills" },
     { label: "EDUCATION", href: "#education" },
     { label: "ACCOLADES", href: "#writing" },
-    { label: "LEETCODE", href: "#leetcode" },
+    { label: "CODING", href: "#leetcode" },
     { label: "CONTACT", href: "#contact" },
 ];
 

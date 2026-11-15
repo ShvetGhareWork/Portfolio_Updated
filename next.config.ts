@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "i.postimg.cc" },
+      { protocol: "https", hostname: "assets.leetcode.com" },
+      { protocol: "https", hostname: "leetcode.com" },
+      { protocol: "https", hostname: "userpic.codeforces.org" },
+      { protocol: "https", hostname: "codeforces.org" },
+      { protocol: "https", hostname: "codeforces.com" },
+      { protocol: "https", hostname: "cdn.codeforces.com" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+      { protocol: "https", hostname: "github.com" },
     ],
   },
 };

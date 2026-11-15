@@ -10,13 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "4",
-    title: "Atlas",
-    description: "Event-driven microservices platform for supply chain & logistics — built with Spring Boot, Apache Kafka, Redis, and Python FastAPI. Features async order processing, AI-powered delivery prediction, JWT security, CI/CD via GitHub Actions, and Kubernetes deployment on AWS EKS.",
-    tech: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
-    github: "https://github.com/ShvetGhareWork/Atlas",
-    live: "https://github.com/ShvetGhareWork/Atlas",
-    image: "/projects/atlas.png"
+    id: "7",
+    title: "Self-Healing Microservice Architecture",
+    description: "Fault-tolerant microservice architecture featuring automated fault detection, health monitoring, dynamic rerouting, and self-healing mechanisms.",
+    tech: ["Spring Boot", "Docker", "Kafka", "Redis", "Resilience4j", "Java"],
+    github: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture",
+    live: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture",
+    image: "/projects/self-healing.png"
   },
   {
     id: "5",
@@ -26,6 +26,24 @@ export const projects: Project[] = [
     github: "https://github.com/ShvetGhareWork/Ticketizer",
     live: "https://github.com/ShvetGhareWork/Ticketizer",
     image: "/projects/ticketizer.png"
+  },
+  {
+    id: "6",
+    title: "ZeroGrid",
+    description: "Autonomous off-grid rescue coordination engine engineered for extreme Indian monsoons — powered by Native Android BLE 5.0 / Wi-Fi Direct P2P mesh and AWS ECS Fargate running Amazon Bedrock AI.",
+    tech: ["Android BLE 5.0", "Wi-Fi Direct", "AWS Fargate", "Bedrock AI", "Next.js", "TypeScript"],
+    github: "https://github.com/hehemohit/zerogrid",
+    live: "https://master.dyb9dpeoxofx1.amplifyapp.com/",
+    image: "/projects/zerogrid.png"
+  },
+  {
+    id: "4",
+    title: "Atlas",
+    description: "Event-driven microservices platform for supply chain & logistics — built with Spring Boot, Apache Kafka, Redis, and Python FastAPI. Features async order processing, AI-powered delivery prediction, JWT security, CI/CD via GitHub Actions, and Kubernetes deployment on AWS EKS.",
+    tech: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
+    github: "https://github.com/ShvetGhareWork/Atlas",
+    live: "https://github.com/ShvetGhareWork/Atlas",
+    image: "/projects/atlas.png"
   },
   {
     id: "1",

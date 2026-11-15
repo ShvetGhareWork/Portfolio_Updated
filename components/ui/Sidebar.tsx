@@ -12,7 +12,7 @@ const sections = [
     { id: "skills", label: "SKILLS" },
     { id: "education", label: "EDUCATION" },
     { id: "writing", label: "ACCOLADES" },
-    { id: "leetcode", label: "LEETCODE" },
+    { id: "leetcode", label: "CODING" },
     { id: "contact", label: "CONTACT" },
 ];
 

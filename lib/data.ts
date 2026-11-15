@@ -2,13 +2,13 @@ import type { Project, Experience, Education, Article, SkillCategory } from "./t
 
 export const projects: Project[] = [
   {
-    category: "SYSTEMS & AI",
-    title: "Atlas",
-    description: "Event-driven microservices platform for supply chain & logistics — built with Spring Boot, Apache Kafka, Redis, and Python FastAPI. Features async order processing, AI-powered delivery prediction, JWT security, CI/CD via GitHub Actions, and Kubernetes deployment on AWS EKS.",
-    technologies: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
+    category: "DISTRIBUTED SYSTEMS",
+    title: "Self-Healing Microservice Architecture",
+    description: "Fault-tolerant microservice architecture featuring automated fault detection, health monitoring, dynamic rerouting, and self-healing mechanisms.",
+    technologies: ["Spring Boot", "Docker", "Kafka", "Redis", "Resilience4j", "Java"],
     year: "2026",
-    image: "/projects/atlas.png",
-    href: "https://github.com/ShvetGhareWork/Atlas"
+    image: "/projects/self-healing.png",
+    href: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture"
   },
   {
     category: "DISTRIBUTED SYSTEMS",
@@ -18,6 +18,33 @@ export const projects: Project[] = [
     year: "2026",
     image: "/projects/ticketizer.png",
     href: "https://github.com/ShvetGhareWork/Ticketizer"
+  },
+  {
+    category: "SYSTEMS & AI",
+    title: "ZeroGrid",
+    description: "Autonomous off-grid rescue coordination engine engineered for extreme Indian monsoons — powered by Native Android BLE 5.0 / Wi-Fi Direct P2P mesh and AWS ECS Fargate running Amazon Bedrock AI.",
+    technologies: ["Android BLE 5.0", "Wi-Fi Direct", "AWS Fargate", "Bedrock AI", "Next.js", "TypeScript"],
+    year: "2026",
+    image: "/projects/zerogrid.png",
+    href: "https://master.dyb9dpeoxofx1.amplifyapp.com/"
+  },
+  {
+    category: "SYSTEMS & AI",
+    title: "Atlas",
+    description: "Event-driven microservices platform for supply chain & logistics — built with Spring Boot, Apache Kafka, Redis, and Python FastAPI. Features async order processing, AI-powered delivery prediction, JWT security, CI/CD via GitHub Actions, and Kubernetes deployment on AWS EKS.",
+    technologies: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
+    year: "2026",
+    image: "/projects/atlas.png",
+    href: "https://github.com/ShvetGhareWork/Atlas"
+  },
+  {
+    category: "FINTECH & AI",
+    title: "NiveshIQ",
+    description: "AI-powered personal finance mentor for Indian retail investors — portfolio X-Ray with true XIRR, fund overlap heatmap, tax wizard, and Money Health Score.",
+    technologies: ["React", "Tailwind CSS", "Chart.js", "Gemini AI", "ExcelJS"],
+    year: "2026",
+    image: "/projects/niveshiq.png",
+    href: "https://niveshiq-tau.vercel.app/"
   },
   { 
     category: "HEALTH & AI", 
@@ -37,15 +64,6 @@ export const projects: Project[] = [
     image: "/projects/edu-able.png",
     href: "https://edu-able.vercel.app/" 
   },
-  {
-  category: "FINTECH & AI",
-  title: "NiveshIQ",
-  description: "AI-powered personal finance mentor for Indian retail investors — portfolio X-Ray with true XIRR, fund overlap heatmap, tax wizard, and Money Health Score.",
-  technologies: ["React", "Tailwind CSS", "Chart.js", "Gemini AI", "ExcelJS"],
-  year: "2026",
-  image: "/projects/niveshiq.png",
-  href: "https://niveshiq-tau.vercel.app/"
-},
   { 
     category: "AI & EDTECH", 
     title: "CareerPath-AI", 
@@ -70,26 +88,8 @@ export const projects: Project[] = [
     description: "AI project-matching engine with a token-based incentive economy and real-time Socket.IO features for builder communities.", 
     technologies: ["React", "Socket.IO", "Ethereum", "Solidity", "Node.js"],
     year: "2025", 
-    image: "/projects/openguild.png", // Placeholder if needed
+    image: "/projects/openguild.png",
     href: "https://openguild.vercel.app/" 
-  },
-  {
-    category: "DISTRIBUTED SYSTEMS",
-    title: "Self-Healing Microservice Architecture",
-    description: "Fault-tolerant microservice architecture featuring automated fault detection, health monitoring, dynamic rerouting, and self-healing mechanisms.",
-    technologies: ["Spring Boot", "Docker", "Kafka", "Redis", "Resilience4j", "Java"],
-    year: "2026",
-    image: "/projects/self-healing.png",
-    href: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture"
-  },
-  {
-    category: "SYSTEMS & AI",
-    title: "ZeroGrid",
-    description: "Intelligent grid management and optimization platform engineered for zero-latency event processing, dynamic routing, and automated infrastructure monitoring.",
-    technologies: ["Next.js", "TypeScript", "Node.js", "Python", "Tailwind CSS"],
-    year: "2026",
-    image: "/projects/zerogrid.png",
-    href: "https://github.com/hehemohit/zerogrid"
   },
 ];
 
@@ -190,16 +190,16 @@ export const articles: Article[] = [
   },
   {
     category: "AWARDS & LEADERSHIP",
-    title: "LeetCode — 150+ Problems Solved",
-    excerpt: "Consistently solved 150+ problems across LinkedLists, Arrays, Trees, and more, sharpening algorithmic thinking and DSA fundamentals.",
+    title: "LeetCode — 360+ Problems Solved",
+    excerpt: "Consistently solved 360+ problems across LinkedLists, Dynamic Programming, Graphs, Trees, and Arrays — sharpening algorithmic thinking and DSA fundamentals.",
     readTime: "ONGOING",
-    href: "#"
+    href: "#leetcode"
   },
 ];
 
 export const stats = [
   { num: "9.39", label: "SGPA · TOP 5–10%" },
-  { num: "150+", label: "LEETCODE PROBLEMS" },
+  { num: "360+", label: "LEETCODE PROBLEMS" },
   { num: "08+", label: "PLATFORMS SHIPPED" },
   { num: "01", label: "HACKATHON WIN" },
 ];
