@@ -6,13 +6,21 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import type { Project } from "@/lib/types";
+import ProjectPreviewModal from "@/components/ui/ProjectPreviewModal";
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({
+  project,
+  onSelect,
+}: {
+  project: Project;
+  onSelect: (project: Project) => void;
+}) {
   const isGithub = project.href?.includes("github.com");
   const [imgError, setImgError] = useState(false);
+  const isLime = project.theme !== "cyan";
 
   return (
-    <motion.a
+    <motion.div
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -22,10 +30,16 @@ function ProjectCard({ project }: { project: Project }) {
         duration: 0.4,
         ease: [0.25, 1, 0.5, 1],
       }}
-      href={project.href ?? "#"}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex flex-col justify-between bg-neutral-50 dark:bg-neutral-950/70 border border-neutral-200 dark:border-neutral-900 transition-all duration-500 hover:border-accent hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_12px_32px_rgba(195,228,29,0.05)] overflow-hidden"
+      onClick={() => onSelect(project)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect(project);
+        }
+      }}
+      className="group flex flex-col justify-between bg-neutral-50 dark:bg-neutral-950/70 border border-neutral-200 dark:border-neutral-900 transition-all duration-500 hover:border-accent hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_12px_32px_rgba(195,228,29,0.05)] overflow-hidden cursor-pointer text-left"
     >
       <div>
         {/* Visual Thumbnail */}
@@ -53,7 +67,11 @@ function ProjectCard({ project }: { project: Project }) {
 
           {/* Top-Left Category Tag */}
           <div className="absolute top-3.5 left-3.5 z-10">
-            <span className="bg-accent text-black font-mono font-black text-[9px] uppercase tracking-[0.2em] px-2.5 py-1 shadow-sm">
+            <span
+              className={`${
+                isLime ? "bg-accent text-black" : "bg-cyan-400 text-black"
+              } font-mono font-black text-[9px] uppercase tracking-[0.2em] px-2.5 py-1 shadow-sm`}
+            >
               {project.category}
             </span>
           </div>
@@ -66,8 +84,18 @@ function ProjectCard({ project }: { project: Project }) {
                 SOURCE
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1.5 font-mono text-[9px] font-black uppercase tracking-wider px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 backdrop-blur-md shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span
+                className={`inline-flex items-center gap-1.5 font-mono text-[9px] font-black uppercase tracking-wider px-2.5 py-1 ${
+                  isLime
+                    ? "bg-accent/15 text-accent border-accent/40"
+                    : "bg-cyan-500/15 text-cyan-400 border-cyan-500/40"
+                } border backdrop-blur-md shadow-sm`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    isLime ? "bg-accent" : "bg-cyan-400"
+                  } animate-pulse`}
+                />
                 LIVE SITE
               </span>
             )}
@@ -77,7 +105,11 @@ function ProjectCard({ project }: { project: Project }) {
         {/* Card Content Area */}
         <div className="p-5 sm:p-6 flex flex-col">
           <div className="flex justify-between items-start mb-2.5">
-            <h3 className="font-sans font-black text-xl sm:text-2xl leading-tight tracking-tight uppercase text-black dark:text-white group-hover:text-accent transition-colors duration-300">
+            <h3
+              className={`font-sans font-black text-xl sm:text-2xl leading-tight tracking-tight uppercase text-black dark:text-white ${
+                isLime ? "group-hover:text-accent" : "group-hover:text-cyan-400"
+              } transition-colors duration-300`}
+            >
               {project.title}
             </h3>
           </div>
@@ -112,8 +144,14 @@ function ProjectCard({ project }: { project: Project }) {
         </span>
 
         <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold tracking-wider uppercase text-neutral-500 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white transition-colors duration-200">
-          <span>VIEW</span>
-          <div className="w-6 h-6 flex items-center justify-center rounded-none bg-neutral-200 dark:bg-neutral-800 group-hover:bg-accent group-hover:text-black transition-all duration-300">
+          <span>PREVIEW</span>
+          <div
+            className={`w-6 h-6 flex items-center justify-center rounded-none bg-neutral-200 dark:bg-neutral-800 ${
+              isLime
+                ? "group-hover:bg-accent group-hover:text-black"
+                : "group-hover:bg-cyan-400 group-hover:text-black"
+            } transition-all duration-300`}
+          >
             <ArrowUpRight
               size={13}
               strokeWidth={2.5}
@@ -122,12 +160,13 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
 
 export default function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("ALL PROJECTS");
+  const [previewProject, setPreviewProject] = useState<Project | null>(null);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(projects.map((p) => p.category)));
@@ -223,11 +262,22 @@ export default function ProjectsSection() {
         >
           <AnimatePresence mode="popLayout" initial={false}>
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+              <ProjectCard
+                key={project.title}
+                project={project}
+                onSelect={(p) => setPreviewProject(p)}
+              />
             ))}
           </AnimatePresence>
         </motion.div>
       </div>
+
+      {/* In-Page Interactive Live Project Preview Modal */}
+      <ProjectPreviewModal
+        project={previewProject}
+        isOpen={!!previewProject}
+        onClose={() => setPreviewProject(null)}
+      />
     </section>
   );
 }

@@ -6,6 +6,8 @@ export interface Project {
   year: string;
   image?: string;
   href?: string;
+  liveUrl?: string;
+  theme?: "lime" | "cyan";
 }
 
 export interface Experience {

@@ -8,7 +8,8 @@ export const projects: Project[] = [
     technologies: ["Spring Boot", "Docker", "Kafka", "Redis", "Resilience4j", "Java"],
     year: "2026",
     image: "/projects/self-healing.png",
-    href: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture"
+    href: "https://github.com/ShvetGhareWork/Self-Healing-Microservice-Architecture",
+    theme: "lime"
   },
   {
     category: "DISTRIBUTED SYSTEMS",
@@ -17,7 +18,8 @@ export const projects: Project[] = [
     technologies: ["Spring Boot", "Redis", "Kafka", "JWT", "Razorpay", "Java", "Lua"],
     year: "2026",
     image: "/projects/ticketizer.png",
-    href: "https://github.com/ShvetGhareWork/Ticketizer"
+    href: "https://github.com/ShvetGhareWork/Ticketizer",
+    theme: "cyan"
   },
   {
     category: "SYSTEMS & AI",
@@ -26,7 +28,9 @@ export const projects: Project[] = [
     technologies: ["Android BLE 5.0", "Wi-Fi Direct", "AWS Fargate", "Bedrock AI", "Next.js", "TypeScript"],
     year: "2026",
     image: "/projects/zerogrid.png",
-    href: "https://master.dyb9dpeoxofx1.amplifyapp.com/"
+    href: "https://master.dyb9dpeoxofx1.amplifyapp.com/",
+    liveUrl: "https://master.dyb9dpeoxofx1.amplifyapp.com/",
+    theme: "lime"
   },
   {
     category: "SYSTEMS & AI",
@@ -35,7 +39,8 @@ export const projects: Project[] = [
     technologies: ["Spring Boot", "Apache Kafka", "Redis", "FastAPI", "Python", "Kubernetes", "AWS EKS", "JWT", "GitHub Actions"],
     year: "2026",
     image: "/projects/atlas.png",
-    href: "https://github.com/ShvetGhareWork/Atlas"
+    href: "https://github.com/ShvetGhareWork/Atlas",
+    theme: "cyan"
   },
   {
     category: "FINTECH & AI",
@@ -44,7 +49,9 @@ export const projects: Project[] = [
     technologies: ["React", "Tailwind CSS", "Chart.js", "Gemini AI", "ExcelJS"],
     year: "2026",
     image: "/projects/niveshiq.png",
-    href: "https://niveshiq-tau.vercel.app/"
+    href: "https://niveshiq-tau.vercel.app/",
+    liveUrl: "https://niveshiq-tau.vercel.app/",
+    theme: "cyan"
   },
   { 
     category: "HEALTH & AI", 
@@ -53,7 +60,9 @@ export const projects: Project[] = [
     technologies: ["Next.js", "Node.js", "MongoDB", "Gemini AI", "Razorpay", "Cloudinary"],
     year: "2026", 
     image: "/projects/nutrisnap.png",
-    href: "https://nutrisnap-eight.vercel.app/" 
+    href: "https://nutrisnap-eight.vercel.app/",
+    liveUrl: "https://nutrisnap-eight.vercel.app/",
+    theme: "lime"
   },
   { 
     category: "LMS & EDUCATION", 
@@ -62,7 +71,9 @@ export const projects: Project[] = [
     technologies: ["Next.js", "n8n", "FFmpeg", "JWT", "MongoDB"],
     year: "2026", 
     image: "/projects/edu-able.png",
-    href: "https://edu-able.vercel.app/" 
+    href: "https://edu-able.vercel.app/",
+    liveUrl: "https://edu-able.vercel.app/",
+    theme: "lime"
   },
   { 
     category: "AI & EDTECH", 
@@ -71,7 +82,9 @@ export const projects: Project[] = [
     technologies: ["Next.js", "OpenAI", "PostgreSQL", "Prisma"],
     year: "2025", 
     image: "/projects/career-path.png",
-    href: "https://career-path-ai-frontend.vercel.app/" 
+    href: "https://career-path-ai-frontend.vercel.app/",
+    liveUrl: "https://career-path-ai-frontend.vercel.app/",
+    theme: "cyan"
   },
   { 
     category: "AI & ECOMMERCE", 
@@ -80,7 +93,9 @@ export const projects: Project[] = [
     technologies: ["MongoDB", "Express", "React", "Node.js", "Gemini AI", "Razorpay"],
     year: "2025", 
     image: "/projects/luxevault.png",
-    href: "https://ai-enhanced-e-commerce-platform.vercel.app/" 
+    href: "https://ai-enhanced-e-commerce-platform.vercel.app/",
+    liveUrl: "https://ai-enhanced-e-commerce-platform.vercel.app/",
+    theme: "lime"
   },
   { 
     category: "AI & WEB3", 
@@ -89,7 +104,9 @@ export const projects: Project[] = [
     technologies: ["React", "Socket.IO", "Ethereum", "Solidity", "Node.js"],
     year: "2025", 
     image: "/projects/openguild.png",
-    href: "https://openguild.vercel.app/" 
+    href: "https://openguild.vercel.app/",
+    liveUrl: "https://openguild.vercel.app/",
+    theme: "cyan"
   },
 ];
 
